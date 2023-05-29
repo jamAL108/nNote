@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
+:root{
+    --maincolor:#ff702a;
+    --textcolor:#fff;
+    --bgcolor:#1e1c2a;
+    --bigfont:2rem;
+    --h2font:1.5rem;
+    --pcolor:0.6rem;
+    --h3font:1rem;
+    --btnfont:0.7rem;
+}
+
+.outer{
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: hidden;
+    background-color: #C2D5FF;
+}
+
+.outer .image{
+    width: 100%;
+    height: 60vh;
+}
+.outer .image img{
+    width: 100vw;
+    height: 58vh;
+}
+.texts{
+    margin: 0;
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: #1e1c2a;
+}
+
+.texts h2{
+    font-weight: 700;
+    margin: 0;
+}
+.texts .change{
+    color: #ff702a;
+}
+.texts p{
+    font-weight: 750;
+    font-size: 0.7rem;
+}
+.outer .getstarted{
+    margin-top: 0rem;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.outer .getstarted .btn{
+    padding-top: 0rem;
+    width: 90%;
+    height: 7vh;
+    background-color: #1e1c2a;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.7rem;
+    font-family: 'Poppins' sans-serif;
+}
+
+.outer .getstarted .btn:hover{
+    transform: scale(0.95);
+    -webkit-transform:scale(0.95) ;
+    -ms-transform: scale(0.95);
+    cursor: pointer;
+}
+
