@@ -1,0 +1,15 @@
+.sidebar {
+    width: 300px; /* Adjust the width as needed */
+    height: 100vh; /* Set the height to cover the full viewport */
+    background-color: #f2f2f2;
+    position: fixed;
+    top: 0;
+    left: -300px; /* Initially hide the sidebar off-screen */
+    transition: left 0.3s ease; /* Add a transition effect to the left property */
+    z-index: 999;
+  }
+  
+  .sidebar.open {
+    left: 0; /* Show the sidebar by setting the left property to 0 */
+  }
+  

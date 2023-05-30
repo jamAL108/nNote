@@ -11,6 +11,7 @@ const Login = () => {
     const navigate = useNavigate();
     const submit= ()=>{
         console.log("hello");
+        navigate("/home");
       }
   return (
     <div className="login">
