@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&display=swap');
+.login{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    animation: transitionIn 1s;
+}
+
+@keyframes transitionIn {
+    from{
+    opacity: 0;
+    transform: translateY(100deg);
+    }
+    to{
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+
+.login form{
+    width: 95%;
+    height: 80%;
+    display: flex;
+    justify-content: top;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login .div{
+    width: 100%;
+    height: 50%;
+    background-color: #0099ff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+.login .div .icon{
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    color: #fff;
+    width: 1.2rem;
+}
+.login .div .ulta{
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    right: 2.5rem;
+    top: 1.8rem;
+    transform: rotate(20deg);
+}
+.login .div .ult{
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    right: 4rem;
+    top: 9rem;
+    transform: rotate(20deg);
+}
+
+.login .div h1{
+    color: #fff;
+    width: 90%;
+    margin: auto;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    font-size: 1.7rem;
+    font-family: "Roboto" , sans-serif;
+}
+.login img{
+    width: 100%;
+    height: 30%;
+}
+
+.login form{
+    margin-top: 0rem;
+    padding: 0;
+}
+.login form .box{
+    width: 100%s;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #808080;
+}
+
+.login form .box input{
+    border: none;
+    outline: none;
+    color: #808080;
+    margin-left:0.45rem;
+    margin-bottom: 0.4rem;
+}
+
+.login form .box .icon{
+    width: 1.2rem;
+    color: #808080; 
+    margin-bottom: -0.33rem;
+}
+ 
+input:focus + .box .icon{
+    color: #0099ff;
+} 
+
+.login form .submit{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.login form .submit .btn {
+    display: inline-block;
+    width: 80%;
+    height: 2rem;
+    margin: auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #0099ff;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .login form .submit .btn:hover {
+    background-color: #ffffff;
+    color:#0099ff ;
+    border: #0099ff;
+  }

@@ -20,6 +20,18 @@
     height: 100vh;
     overflow-y: hidden;
     background-color: #C2D5FF;
+    animation: transitionIn 1s;
+}
+
+@keyframes transitionIn {
+    from{
+    opacity: 0;
+    transform: translateY(-50deg);
+    }
+    to{
+    opacity: 1;
+    transform: translateY(0);
+    }
 }
 
 .outer .image{
@@ -45,6 +57,7 @@
 .texts h2{
     font-weight: 700;
     margin: 0;
+    font-size: 1.5rem;
 }
 .texts .change{
     color: #ff702a;

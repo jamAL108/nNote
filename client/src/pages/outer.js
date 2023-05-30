@@ -1,7 +1,9 @@
 import React from 'react'
 import Background from "../images/background2.jpg";
 import "../css/outer.css";
+import { useNavigate } from 'react-router-dom'; 
 const Outer = () => {
+  const navigate = useNavigate();
   return (
     <div className="outer">
     <div className="image">
@@ -12,8 +14,12 @@ const Outer = () => {
       <p>Take notes & manage yout notes <br /> with eaise on sticky</p>
     </div>
     <div className="getstarted">
-      <button className='btn'>Create Account</button>
-      <button className='btn'>Log in</button>
+      <button className='btn' onClick={(e)=>{
+        navigate("/register");
+      }} >Create Account</button>
+      <button className='btn' onClick={(e)=>{
+        navigate("/login");
+      }}>Log in</button>
      </div>
     </div>
   )
