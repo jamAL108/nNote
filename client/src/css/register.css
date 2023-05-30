@@ -70,7 +70,7 @@
     margin: auto;
     text-align: left;
     margin-bottom: 1.5rem;
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-family: "Roboto" , sans-serif;
 }
 img{
@@ -95,6 +95,7 @@ img{
     color: #808080;
     margin-left:0.45rem;
     margin-bottom: 0.4rem;
+    font-family: 'Roboto' , sans-serif;
 }
 
 .register form .box .icon{
@@ -103,8 +104,8 @@ img{
     margin-bottom: -0.33rem;
 }
  
-input:focus + .box .icon{
-    color: #0099ff;
+input:focus + .box{
+    border-bottom: #0099ff;
 } 
 
 .register form .submit{
