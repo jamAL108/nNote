@@ -60,8 +60,8 @@
     position: absolute;
     width: 4rem;
     height: 4rem;
-    right: 4rem;
-    top: 9rem;
+    right: 5rem;
+    top: 9.8rem;
     transform: rotate(20deg);
 }
 
@@ -84,7 +84,7 @@
     padding: 0;
 }
 .login form .box{
-    width: 100%s;
+    width: 90%;
     margin-bottom: 1rem;
     border-bottom: 2px solid #808080;
 }
@@ -109,19 +109,19 @@ input:focus + .box .icon{
 
 .login form .submit{
     width: 100%;
-    height: auto;
+    height: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
 
 
 .login form .submit .btn {
     display: inline-block;
     width: 80%;
-    height: 2rem;
+    height: 30%;
     margin: auto;
+    margin-top: 1rem;
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
@@ -139,4 +139,9 @@ input:focus + .box .icon{
     background-color: #ffffff;
     color:#0099ff ;
     border: #0099ff;
+  }
+  .login form .submit .btn:active {
+    background-color: #fff;
+    color: #0099ff;
+    border: 1px solid #0099ff;
   }
