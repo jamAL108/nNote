@@ -2,7 +2,7 @@ import React ,{useState}from 'react';
 import "../../css/register.css";
 import Wave from '../../images/register.png';
 import { useNavigate } from 'react-router-dom'; 
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Person2Icon from '@mui/icons-material/Person2';
 import EmailIcon from '@mui/icons-material/Email';
