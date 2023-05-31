@@ -8,6 +8,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 const Home = () => {
   const reffi = useRef(null);
+  const refu = useRef(null);
+  const temp6 = useRef(null);
+  const temp5 = useRef(null);
   const [sidebar , setsidebar] = useState(false);
   const [grid,setgrid]=useState(false);
   const [cross , setcross] =useState(false);
@@ -16,19 +19,18 @@ const Home = () => {
   let prevScrollPos = window.pageYOffset;
   window.addEventListener('scroll', function() {
     let currentScrollPos = window.pageYOffset;
-    console.log(currentScrollPos);
     let nav = document.querySelector(".nav");
+    console.log(prevScrollPos);
     if (prevScrollPos > currentScrollPos) {
       nav.style.position="sticky";
       nav.style.top="2.5%";
-      nav.style.zIndex="100";
+      nav.style.zIndex="3";
     } else {
       nav.style.position="relative";
       nav.style.zIndex="0";
     }
     prevScrollPos = currentScrollPos;
   });
-
    const search = ()=>{
      const title = document.querySelector(".title");
      console.log(title);
@@ -43,7 +45,8 @@ const Home = () => {
   return (
     <>
            {sidebar===true &&(
-           <CloseIcon className='great' onClick={(e)=>{
+            <div ref={temp6} className="great">
+           <CloseIcon id='gret' onClick={(e)=>{
             e.preventDefault();
               setsidebar(false);
               const temp =reffi.current;
@@ -53,23 +56,36 @@ const Home = () => {
                 temp.classList.remove('show');
               }
               temp.classList.add('hide');
+              const reff = refu.current;
+              reff.classList.remove('dark');
+              const refff = temp5.current;
+              refff.classList.remove('dark');
+              document.body.style.backgroundColor = "#ffffff";
+              document.body.style.overflow="scroll";
           }}/>
+          </div>
         )}
-    <div className="home">
-      <nav className="nav">
+    <div ref={refu} className="home">
+      <nav ref={temp5} className="nav">
             <div className="left">
             <div className="move">
-           <MenuIcon className='bttn'  onClick={(e)=>{
+           <MenuIcon className='bttn' id="helo"  onClick={(e)=>{
               const temp1 =reffi.current;
             e.preventDefault();
               setsidebar(true);
-              console.log(temp1);
               if(temp1.classList.contains('hide')){
                 console.log("hey");
                 temp1.classList.remove('hide');
               }
               temp1.classList.add('show');
-              console.log(temp1);
+              const reff = refu.current;
+              reff.classList.add('dark');
+              const refff = temp5.current;
+              refff.classList.add('dark');
+              document.body.style.backgroundColor = "#605e5e";
+              document.body.style.overflow="hidden";
+              var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+              temp1.style.top=`${scrollTop}px`;
           }}/>
             </div>
         <h2 className='title' >Nnote</h2>
