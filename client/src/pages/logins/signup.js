@@ -12,7 +12,7 @@ import Cal2 from '../../images/cal2.png';
 
 const Signup = () => {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const [value, setvalue] =useState({
         username:"",
         email:"",
