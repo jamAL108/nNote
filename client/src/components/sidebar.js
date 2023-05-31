@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Sidebar.css'; // Import your CSS file for styling
 import NotesIcon from '@mui/icons-material/Notes';
-import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
 import AddIcon from '@mui/icons-material/Add';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import AutoDeleteOutlinedIcon from '@mui/icons-material/AutoDeleteOutlined';

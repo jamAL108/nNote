@@ -40,7 +40,6 @@ const Home = () => {
      setserh(false);
      setaction(true);
    };
-   const temp =reffi.current;
   return (
     <div className="home">
       <nav className="nav">
