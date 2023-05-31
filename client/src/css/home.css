@@ -2,11 +2,12 @@
     width: 100vw;
     height: 100vh;
     background-color: #FFFFFF;
+    
 }
 
 nav{
     width: 95%;
-    height: 7.6%;
+    height: 7%;
     margin: auto;
     background-color: #F4F7FC;
     margin: 2.5%;
@@ -14,6 +15,7 @@ nav{
     display: flex;
     justify-content: space-between;
     transition:  5s ease;
+    z-index: 1;
 }
 
 .bttn{
@@ -31,19 +33,18 @@ nav .left , nav .right{
     grid-gap: 0.4rem;
 }
 nav .left {
-    margin-left: 0.5rem;
+    margin-left: 0.6rem;
     position: relative;
 }
 nav .right{
-    margin-right: 0.4rem;
+    margin-right: 0.6rem;
 }
 nav .left h2{
-    margin-top: 0.7rem;
+    margin-top: 0.8rem;
     color: #808080;
 }
 nav .left .move{
     position: relative;
-    z-index: 200;
 }
 .title{
     transition: 2s;
@@ -63,17 +64,38 @@ nav .right input{
     margin-top: -0.3rem;
     font-family: 'Roboto' , sans-serif;
 }
-
-.side{
+.great{
     position: absolute;
-    top: 100px;
-    left: -300px;
+    top: 0.8rem;
+    left: 0.8rem;
+    z-index:3;
 }
+
+.great .css-i4bv87-MuiSvgIcon-root{
+    width: 3rem;
+    height: 3rem;
+}
+.side{
+    width: 80%;
+    height: 100vh;
+    background-color: #ffffff;
+    position: absolute;
+    top: 0px;
+    left: -300rem;
+    z-index:2;
+    transition:  2s ease-in-out;
+} 
+
 
 .side.show{
-    left: 100px;
+    left: 0rem;
+    transition: all 0.3s;
 }
 
+
+.side.show + .home{
+     opacity: 0; 
+}
 
 
 

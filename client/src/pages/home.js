@@ -42,9 +42,8 @@ const Home = () => {
    };
   return (
     <div className="home">
-      <nav className="nav">
-      {sidebar===true &&(
-           <CloseIcon  onClick={(e)=>{
+       {sidebar===true &&(
+           <CloseIcon className='great' onClick={(e)=>{
             e.preventDefault();
               setsidebar(false);
               const temp =reffi.current;
@@ -56,9 +55,10 @@ const Home = () => {
               temp.classList.add('hide');
           }}/>
         )}
+      <nav className="nav">
             <div className="left">
             <div className="move">
-           <MenuIcon  onClick={(e)=>{
+           <MenuIcon className='bttn'  onClick={(e)=>{
               const temp1 =reffi.current;
             e.preventDefault();
               setsidebar(true);

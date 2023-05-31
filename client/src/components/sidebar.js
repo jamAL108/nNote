@@ -12,37 +12,41 @@ const Sidebar = () => {
      <div className="upper">
         <h1>Nnote</h1>
      </div>
+     <div className="other">
      <div className="second">
-      <NotesIcon/>
+       <div className="ul">
+      <NotesIcon className='bttnn' />
       <h2>Notes</h2>
+      </div>
      </div>
      <div className="third">
       <div className="head">
-        <h3>Labels</h3>
-        <h3>edits</h3>
+        <h3 className='one' >Labels</h3>
+        <h3 className='two'>edits</h3>
       </div>
       <div className="ul">
-      <AddIcon/>
+      <AddIcon className='bttnn' />
       <h2>Create new Label</h2>
       </div>
      </div>
      <div className="fourth">
       <div className="ul">
-        <ArchiveOutlinedIcon/>
+        <ArchiveOutlinedIcon className='bttnn'/>
         <h2>Archives</h2>
       </div>
       <div className="ul">
-        <AutoDeleteOutlinedIcon/>
+        <AutoDeleteOutlinedIcon className='bttnn'/>
         <h2>Deleted</h2>
       </div>
       <div className="ul">
-        <SettingsIcon/>
+        <SettingsIcon className='bttnn'/>
         <h2>Settings</h2>
       </div>
       <div className="ul">
-        <HelpOutlineIcon/>
+        <HelpOutlineIcon className='bttnn'/>
         <h2>Help & feedback</h2>
       </div>
+     </div>
      </div>
     </>
   );

@@ -1,3 +1,135 @@
-.sidebar {
-     
-  } 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&family=Roboto+Condensed&display=swap');
+
+.side{
+  font-family: 'Roboto Condensed' , sans-serif;
+}
+.side .upper{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 8vh;
+    border-bottom: 2px solid #C3E7FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.side .upper h1{
+  font-size: 1.8rem;
+  font-family: 'Roboto Condensed' , sans-serif;
+  font-weight: 300;
+  
+}
+.other{
+  width: 100%;
+  margin-top: 8vh;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.other .second{
+  width: 100%;
+  height: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid #C3E7FF;
+}
+ .other .second .ul{
+  margin-top: 8%;
+  margin-bottom: 8%;
+   width: 95%;
+   height: 60%;
+   display: grid;
+   align-items: center;
+   grid-template-columns: 15% 85%;
+   border-radius: 44px;
+   background-color: #C3E7FF;
+   color: #0D50A7;
+} 
+
+.side  .other .second .ul .bttnn{
+   margin-left: 1rem;
+   width: 1rem;
+}
+.side  .other .second .ul h2{
+  margin: 0;
+  margin-left: 0.5rem;
+  font-family: 'Roboto Condensed' , sans-serif;
+  font-size: 0.7rem;
+}
+
+.side  .other  .third{
+  width: 100%;
+  height: 22%;
+  border-bottom: 2px solid #C3E7FF;
+}
+.side  .other  .third .head{
+  width: 100%;
+  height: 30%;
+  display:flex ;
+  justify-content:space-around;
+  align-items: center;
+}
+.side  .other  .third .head h3{
+  font-weight: 100;
+  font-size: 0.7rem;
+}
+
+.side  .other  .third .head .one{
+  margin-left: -1.7rem ;
+}
+.side  .other  .third .head .two{
+  margin-right: -1.2rem ;
+}
+
+.other .third .ul{
+   width: 95%;
+   height: 60%;
+   display: grid;
+   align-items: center;
+   grid-template-columns: 15% 85%;
+   border-radius: 44px;
+} 
+
+.side  .other .third .ul .bttnn{
+   margin-left: 1.3rem;
+   width: 1rem;
+}
+.side  .other .third .ul h2{
+  margin: 0;
+  margin-left: 0.5rem;
+  font-family: 'Roboto Condensed' , sans-serif;
+  font-size: 0.7rem;
+  font-weight: 100;
+}
+
+.side .other .fourth {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 2px solid #C3E7FF;
+}
+.other .fourth  .ul{
+  margin-top: 0.8rem;
+  width: 95%;
+  height: 28%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 15% 85%;
+  border-radius: 44px;
+} 
+
+.side  .other .fourth .ul .bttnn{
+  margin-left: 1.3rem;
+  width: 1rem;
+}
+.side  .other .fourth  .ul h2{
+ margin: 0;
+ margin-left: 0.8rem;
+ font-family: 'Roboto Condensed' , sans-serif;
+ font-size: 0.7rem;
+ font-weight: 100;
+}
