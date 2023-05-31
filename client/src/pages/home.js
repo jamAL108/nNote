@@ -41,8 +41,8 @@ const Home = () => {
      setaction(true);
    };
   return (
-    <div className="home">
-       {sidebar===true &&(
+    <>
+           {sidebar===true &&(
            <CloseIcon className='great' onClick={(e)=>{
             e.preventDefault();
               setsidebar(false);
@@ -55,6 +55,7 @@ const Home = () => {
               temp.classList.add('hide');
           }}/>
         )}
+    <div className="home">
       <nav className="nav">
             <div className="left">
             <div className="move">
@@ -110,6 +111,7 @@ const Home = () => {
      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore expedita sed aliquam possimus mollitia atque qui placeat accusamus quam saepe, deserunt excepturi dolor, veritatis quibusdam cum provident ducimus ex. In magnam vel quo aspernatur explicabo recusandae asperiores qui ut fugit tenetur consequuntur temporibus blanditiis unde distinctio a quas quisquam consequatur, impedit illum. Eveniet, ex harum. Labore tempora ratione architecto fugiat, harum voluptate nulla ipsa veniam consequuntur rerum odit nesciunt sed, voluptates odio! Sed velit totam eaque unde, soluta aut delectus corporis sapiente quaerat cupiditate at reprehenderit maxime accusantium iste rem quis minus quae fuga neque sint nesciunt omnis perferendis recusandae ab. Rerum, nostrum qui. Hic cupiditate sit atque debitis exercitationem, dolorem, quod adipisci placeat molestiae dolore fugit sapiente explicabo molestias enim et numquam. Expedita quam quos laudantium dicta! Cumque ad dolores quam sapiente esse tenetur nostrum aliquam nesciunt consectetur eveniet, reiciendis repellendus quis necessitatibus impedit enim! Ut quas qui tempora. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error saepe ut eligendi accusantium, officia consequatur cum nam maiores ipsum quia obcaecati aut, ex magni doloribus esse vero minima enim quis in. Quis non ea, beatae nemo quaerat obcaecati architecto consequatur facilis voluptate praesentium nisi impedit aspernatur amet, natus earum modi eos temporibus labore, sapiente enim eligendi necessitatibus minus! Veniam accusantium explicabo voluptatum voluptates architecto dolorum, facere, consectetur corrupti, voluptatem vero recusandae officiis quidem. Alias sapiente voluptates, delectus nostrum architecto veniam eveniet ut itaque sequi ab quidem culpa, amet suscipit expedita quas eius enim dolorum rem nulla? Est exercitationem totam eligendi id. Architecto excepturi laborum, omnis vitae, repellendus ratione quos eos placeat officiis saepe quam corporis aliquid animi voluptates possimus hic deleniti quas nam nihil itaque minus? Ratione, obcaecati rem modi qui incidunt ab! Accusantium pariatur voluptatem dolorum molestiae, similique amet voluptatum veritatis nam, veniam excepturi quam exercitationem optio tempora, cum odit. Eum omnis aperiam enim autem aliquid libero ab dolores eaque error sint, vitae fugit vel laudantium har </p>
    </div>
     </div>
+    </>
   )
 }
 

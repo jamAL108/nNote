@@ -75,9 +75,13 @@ nav .right input{
     width: 3rem;
     height: 3rem;
 }
+body{
+    height: 100%;
+    width: 100%;
+}
 .side{
     width: 80%;
-    height: 100vh;
+    height: 100%;
     background-color: #ffffff;
     position: absolute;
     top: 0px;
