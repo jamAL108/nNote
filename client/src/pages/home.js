@@ -1,4 +1,4 @@
-import React,{useState , useRef}from 'react'
+import React,{useState , useRef , useEffect }from 'react'
 import Sidebar from '../components/sidebar';
 import GridViewIcon from '@mui/icons-material/GridView';
 import '../css/home.css';
@@ -7,6 +7,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 const Home = () => {
+  useEffect(()=>{
+    document.body.style.transition="all 0s";
+  document.body.style.backgroundColor="#ffffff";
+},[]);
   const reffi = useRef(null);
   const refu = useRef(null);
   const temp6 = useRef(null);
@@ -31,6 +35,7 @@ const Home = () => {
     }
     prevScrollPos = currentScrollPos;
   });
+  console.log(sidebar);
    const search = ()=>{
      const title = document.querySelector(".title");
      console.log(title);
@@ -44,7 +49,7 @@ const Home = () => {
    };
   return (
     <>
-           {sidebar===true &&(
+           {/* {sidebar===true &&( */}
             <div ref={temp6} className="great">
            <CloseIcon id='gret' onClick={(e)=>{
             e.preventDefault();
@@ -62,9 +67,15 @@ const Home = () => {
               refff.classList.remove('dark');
               document.body.style.backgroundColor = "#ffffff";
               document.body.style.overflow="scroll";
+              let tp = temp6.current;
+              tp.style.zIndex="0";
+              var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+              scrollTop+=0.8;
+              tp.style.color="transparent";
+              tp.style.top=`${scrollTop}px`;
           }}/>
           </div>
-        )}
+        {/* // )} */}
     <div ref={refu} className="home">
       <nav ref={temp5} className="nav">
             <div className="left">
@@ -86,6 +97,11 @@ const Home = () => {
               document.body.style.overflow="hidden";
               var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
               temp1.style.top=`${scrollTop}px`;
+              let tp = temp6.current;
+              tp.style.zIndex="7";
+              scrollTop+=0.8;
+              tp.style.color="black";
+              tp.style.top=`${scrollTop}px`;
           }}/>
             </div>
         <h2 className='title' >Nnote</h2>

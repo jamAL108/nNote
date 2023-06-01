@@ -4,6 +4,10 @@ import "../css/outer.css";
 import { useNavigate } from 'react-router-dom'; 
 const Outer = () => {
   const navigate = useNavigate();
+  const data ={
+    index:0
+  }
+  localStorage.setItem("sidebar",JSON.stringify({data}));
   return (
     <div className="outer">
     <div className="image">

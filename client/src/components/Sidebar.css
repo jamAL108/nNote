@@ -43,12 +43,13 @@
   margin-bottom: 8%;
    width: 95%;
    height: 60%;
-   display: grid;
+   font-weight: 100;
+   /* display: grid;
    align-items: center;
-   grid-template-columns: 15% 85%;
-   border-radius: 44px;
+   grid-template-columns: 15% 85%; */
+   /* border-radius: 44px;
    background-color: #C3E7FF;
-   color: #0D50A7;
+   color: #0D50A7; */
 } 
 
 .side  .other .second .ul .bttnn{
@@ -60,6 +61,7 @@
   margin-left: 0.5rem;
   font-family: 'Roboto Condensed' , sans-serif;
   font-size: 1rem;
+  font-weight: 100;
 }
 
 .side  .other  .third{
@@ -116,12 +118,25 @@
 }
 .other .fourth  .ul{
   width: 95%;
-  height: 28%;
+  height: 20%;
+} 
+
+.other .fourth  .ul:last-child{
+  width: 95%;
+  height: 20%;
   display: grid;
   align-items: center;
   grid-template-columns: 15% 85%;
   border-radius: 44px;
 } 
+.other .fourth .ul:nth-last-child(2){
+  width: 95%;
+  height: 20%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 15% 85%;
+  border-radius: 44px;
+}
 .other .fourth .ul:first-child{
   margin-top: 0.8rem;
 }
@@ -135,4 +150,44 @@
  font-family: 'Roboto Condensed' , sans-serif;
  font-size: 1rem;
  font-weight: 100;
+}
+
+.second .ul .active{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 15% 85%;
+  border-radius: 44px;
+  background-color: #C3E7FF;
+  color: #0D50A7;
+}
+.second .ul .notactive{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 15% 85%;
+  border-radius: 44px;
+  /* background-color: #C3E7FF;
+  color: #0D50A7; */
+}
+
+.fourth .ul .active{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 15% 85%;
+  border-radius: 44px;
+  background-color: #C3E7FF;
+  color: #0D50A7;
+}
+.fourth .ul .notactive{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 15% 85%;
+  border-radius: 44px;
 }

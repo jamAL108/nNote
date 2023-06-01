@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect ,useState } from 'react';
 import './Sidebar.css'; // Import your CSS file for styling
 import NotesIcon from '@mui/icons-material/Notes';
 import AddIcon from '@mui/icons-material/Add';
@@ -6,7 +6,24 @@ import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import AutoDeleteOutlinedIcon from '@mui/icons-material/AutoDeleteOutlined';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import { useNavigate } from 'react-router-dom';
 const Sidebar = () => {
+  const sideyy = JSON.parse(localStorage.getItem("sidebar"));
+  const data = sideyy.data.index;
+  const navigate = useNavigate();
+  const [notes,setnotes] = useState(false);
+  const [archive,setarchive] = useState(false);
+  const [deleted,setdeleted] = useState(false);
+// eslint-disable-next-line
+  useEffect(()=>{
+    if(data===0){
+      setnotes(true);
+    }else if(data===1){
+      setarchive(true);
+    }else if(data===2){
+      setdeleted(true);
+    }
+  },[]);
   return (
     <>
      <div className="upper">
@@ -14,9 +31,18 @@ const Sidebar = () => {
      </div>
      <div className="other">
      <div className="second">
-       <div className="ul">
+       <div className="ul"   onClick={(e)=>{
+        setnotes(true);
+        setarchive(false);
+        setdeleted(false);
+        sideyy.data.index=0;
+        localStorage.setItem("sidebar",JSON.stringify(sideyy));
+        navigate('/home');
+       }}>
+        <div  className={notes ?  "active" : "notactive"}>
       <NotesIcon className='bttnn' />
       <h2>Notes</h2>
+      </div>
       </div>
      </div>
      <div className="third">
@@ -28,26 +54,44 @@ const Sidebar = () => {
       <AddIcon className='bttnn' />
       <h2>Create new Label</h2>
       </div>
-     </div>
+      </div>
      <div className="fourth">
-      <div className="ul">
+      <div className="ul" onClick={(e)=>{
+      setnotes(false);
+        setarchive(true);
+        setdeleted(false);
+        sideyy.data.index=1;
+        localStorage.setItem("sidebar",JSON.stringify(sideyy));
+        navigate('/archives');
+       }}>
+        <div  className={archive ?  "active" : "notactive"}>
         <ArchiveOutlinedIcon className='bttnn'/>
         <h2>Archives</h2>
+        </div>
       </div>
-      <div className="ul">
+      <div className="ul" onClick={(e)=>{
+      setnotes(false);
+        setarchive(false);
+        setdeleted(true);
+        sideyy.data.index=2;
+        localStorage.setItem("sidebar",JSON.stringify(sideyy));
+        navigate('/deleted');
+       }}>
+        <div  className={deleted ?  "active" : "notactive"}>
         <AutoDeleteOutlinedIcon className='bttnn'/>
         <h2>Deleted</h2>
+        </div>
       </div>
       <div className="ul">
         <SettingsIcon className='bttnn'/>
         <h2>Settings</h2>
-      </div>
+        </div>
       <div className="ul">
         <HelpOutlineIcon className='bttnn'/>
         <h2>Help & feedback</h2>
+        </div>
       </div>
-     </div>
-     </div>
+      </div>
     </>
   );
 };
