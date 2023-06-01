@@ -9,13 +9,13 @@
     align-items: center;
     flex-direction: column;
     position: relative;
-    animation: transitionIn 1s;
+    animation: transitionIn 0.5s;
 }
 
 @keyframes transitionIn {
     from{
     opacity: 0;
-    transform: translateY(100deg);
+    transform: translateY(40deg);
     }
     to{
     opacity: 1;
