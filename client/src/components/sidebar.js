@@ -14,7 +14,6 @@ const Sidebar = () => {
   const [notes,setnotes] = useState(false);
   const [archive,setarchive] = useState(false);
   const [deleted,setdeleted] = useState(false);
-// eslint-disable-next-line
   useEffect(()=>{
     if(data===0){
       setnotes(true);
@@ -23,6 +22,7 @@ const Sidebar = () => {
     }else if(data===2){
       setdeleted(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
   return (
     <>
