@@ -18,6 +18,7 @@
 }
 .side .upper h1{
   font-size: 1.8rem;
+  color: #283848;
   font-family: 'Roboto Condensed' , sans-serif;
   font-weight: 300;
   
@@ -83,9 +84,11 @@
 
 .side  .other  .third .head .one{
   margin-left: -1rem ;
+  color: #283848;
 }
 .side  .other  .third .head .two{
   margin-right: -1.2rem ;
+  color: #283848;
 }
 
 .other .third .ul{
@@ -95,6 +98,7 @@
    align-items: center;
    grid-template-columns: 15% 85%;
    border-radius: 44px;
+   color: #283848;
 } 
 
 .side  .other  .bttnn{
@@ -107,6 +111,7 @@
   font-family: 'Roboto Condensed' , sans-serif;
   font-size: 1rem;
   font-weight: 100;
+  color: #283848;
 }
 
 .side .other .fourth {
@@ -128,6 +133,7 @@
   align-items: center;
   grid-template-columns: 15% 85%;
   border-radius: 44px;
+  color: #283848;
 } 
 .other .fourth .ul:nth-last-child(2){
   width: 95%;
@@ -136,6 +142,16 @@
   align-items: center;
   grid-template-columns: 15% 85%;
   border-radius: 44px;
+  color: #283848;
+}
+.other .fourth .ul:nth-last-child(3){
+  width: 95%;
+  height: 20%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 15% 85%;
+  border-radius: 44px;
+  color: #283848;
 }
 .other .fourth .ul:first-child{
   margin-top: 0.8rem;
@@ -169,6 +185,7 @@
   align-items: center;
   grid-template-columns: 15% 85%;
   border-radius: 44px;
+  color: #283848;
   /* background-color: #C3E7FF;
   color: #0D50A7; */
 }
@@ -190,4 +207,5 @@
   align-items: center;
   grid-template-columns: 15% 85%;
   border-radius: 44px;
+  color: #283848;
 }

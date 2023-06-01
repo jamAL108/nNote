@@ -7,6 +7,7 @@ import AutoDeleteOutlinedIcon from '@mui/icons-material/AutoDeleteOutlined';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { useNavigate } from 'react-router-dom';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 const Sidebar = () => {
   const sideyy = JSON.parse(localStorage.getItem("sidebar"));
   const data = sideyy.data.index;
@@ -85,6 +86,10 @@ const Sidebar = () => {
       <div className="ul">
         <SettingsIcon className='bttnn'/>
         <h2>Settings</h2>
+        </div>
+        <div className="ul">
+        <LogoutRoundedIcon className='bttnn'/>
+        <h2>Logout</h2>
         </div>
       <div className="ul">
         <HelpOutlineIcon className='bttnn'/>

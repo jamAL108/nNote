@@ -70,7 +70,7 @@ const Deleted = () => {
               let tp = temp6.current;
               tp.style.zIndex="0";
               var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-              scrollTop+=0.8;
+              scrollTop+=8;
               tp.style.color="transparent";
               tp.style.top=`${scrollTop}px`;
           }}/>
@@ -98,8 +98,8 @@ const Deleted = () => {
               temp1.style.top=`${scrollTop}px`;
               let tp = temp6.current;
               tp.style.zIndex="7";
-              scrollTop+=0.8;
-              tp.style.color="black";
+              scrollTop+=8;
+              tp.style.color="#283848";
               tp.style.top=`${scrollTop}px`;
           }}/>
             </div>
