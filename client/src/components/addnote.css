@@ -1,0 +1,38 @@
+.addnote{
+    width: 100vw;
+    height: 100vh;
+    transition: all 1s;
+}
+
+.addnote header{
+    width: 100vw;
+    height: 8vh;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    color: #22211C;
+}
+.addnote header .left{
+    margin-left: 0.5rem;
+}
+.addnote header .right{
+    margin-right: 0.8rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.addnote .content{
+    width: 90vw;
+    min-height: 80%;
+    height: auto;
+    margin: auto;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
+.addnote .content .input1{
+    margin-top: 1.5rem;
+}
+
+

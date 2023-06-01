@@ -22,10 +22,15 @@ const Deleted = () => {
   const [serh , setserh] =useState(true);
   const [action , setaction] =useState(false);
   let prevScrollPos = window.pageYOffset;
+  var currentPageUrl = window.location.href;
+  var pageName = currentPageUrl.substring(currentPageUrl.lastIndexOf("/") + 1);
+  console.log(pageName);
+  if(pageName==='deleted'){
   window.addEventListener('scroll', function() {
     let currentScrollPos = window.pageYOffset;
     let nav = document.querySelector(".nav");
     console.log(prevScrollPos);
+    console.log("hey");
     if (prevScrollPos > currentScrollPos) {
       nav.style.position="sticky";
       nav.style.top="2.5%";
@@ -36,6 +41,7 @@ const Deleted = () => {
     }
     prevScrollPos = currentScrollPos;
   });
+}
   console.log(sidebar);
    const search = ()=>{
      const title = document.querySelector(".title");

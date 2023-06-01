@@ -9,6 +9,7 @@ import Home from './pages/home';
 import Archive from './pages/archive';
 import Deleted from './pages/deleted';
 import Settings from './pages/settings';
+import Addnote from './components/addnote';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path='/archives' element={<Archive/>}/>
       <Route path='/deleted' element={<Deleted/>}/>
       <Route path='/settings' element={<Settings/>}/>
+      <Route path='/addnote' element={<Addnote/>}/>
       
      </Routes>
   );
