@@ -1,9 +1,9 @@
 import{
-    LOGOUT
-//  LOGIN ,
+    LOGOUT,
+ LOGIN ,
 //  SIGNUP ,
-//  LOGINERROR ,
-//  SIGNUPERROR ,
+ LOGINERROR ,
+ SIGNUPERROR 
 //  ADDNOTE ,
 //  ADDNOTEERROR ,
 //  DELETENOTE ,
@@ -30,34 +30,30 @@ import{
 
 const initialstate={
     authordata:null,
-    facultylogin:false,
-    facultyloginerror:"",
-    facultyupdated:false,
-    markuploaded:false,
-    marksuploaderror:"",
-    attendancemarked:false,
-    test:[],
-    students:[],
-    getstudenterror:"",
-    addtest:false,
-    techupdatepassword:false,
-    techupdatepassworderror:"",
-    notice:[],
-    getnoticeerror:"",
-    attendancedone:false,
-    attendanceerror:"",
-    ccdef:{},
-    otherdef:{},
-    deferror:"",
-    subject:[]
+    login:false,
+    loginerror:"",
+    signuperror:""
+    
 }  
 
 const user =(state=initialstate , action) =>{
     switch(action.type){
-       case LOGOUT:
-            return {
-                ...state, facultyloginerror:action.payload
-            } 
+        case LOGIN:
+            const data = action.payload;
+                localStorage.setItem("user",JSON.stringify({data}));
+                break;
+        case LOGOUT:
+            localStorage.removeItem("user");
+            break;
+        case LOGINERROR:
+            return{
+                ...state , loginerror:action.payload
+            }
+         case SIGNUPERROR:
+            return{
+                 ...state , signuperror:action.payload
+            }    
+
         default:
             return state;    
     }

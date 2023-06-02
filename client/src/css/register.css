@@ -88,7 +88,6 @@ img{
     border-bottom: 2px solid #808080;
     display: flex;
 }
-
 .register form .box input{
     border: none;
     outline: none;
@@ -96,6 +95,10 @@ img{
     margin-left:0.45rem;
     margin-bottom: 0.4rem;
     font-family: 'Roboto' , sans-serif;
+}
+
+.register form .box input[type='password'] {
+    font-family: "Roboto" ,sans-serif;
 }
 
 .register form .box .icon{
@@ -154,18 +157,19 @@ input:focus + .box{
     transition: background-color 0.3s ease;
   }
 
-  .register form .submit .btn:hover {
-    background-color: #fff;
-    color: #0099ff;
-    border: 1px solid #0099ff;
-  }
+.register form span {
+    color: red;
+    font-size: 0.7rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    transform: all 2s;
+}
 
   .register form .submit .btn:active {
     background-color: #fff;
     color: #0099ff;
     border: 1px solid #0099ff;
   }
-
 
 .register form .submit p{
     width: 100%;

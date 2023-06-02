@@ -9,7 +9,7 @@ import bodyParser from "body-parser"
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-const port =   8000;
+const port = 8000;
 const db = process.env.DB;
 mongoose.connect(db).then(()=>{
     console.log("success")
