@@ -49,6 +49,7 @@
    width: 95%;
    height: 60%;
    font-weight: 100;
+   border-radius: 44px;
    /* display: grid;
    align-items: center;
    grid-template-columns: 15% 85%; */
@@ -159,6 +160,7 @@
 }
 .other .fourth .ul:first-child{
   margin-top: 0.8rem;
+  border-radius:44px;
 }
 .side  .other .fourth .ul .bttnn{
   margin-left: 1.3rem;
@@ -212,4 +214,8 @@
   grid-template-columns: 15% 85%;
   border-radius: 44px;
   color: #283848;
+}
+
+.ul:hover{
+  background-color: #E6EEF9;
 }

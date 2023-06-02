@@ -175,7 +175,7 @@ if(pageName==="home"){
       console.log(tpp);
       navigate("/addnote");
     }} >
-      <AddIcon ref={temp8} />
+      <AddIcon ref={temp8} className='icons' />
     </div>
     </div>
     </>
