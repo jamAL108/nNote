@@ -8,10 +8,14 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { useNavigate } from 'react-router-dom';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+import { useDispatch, useSelector } from 'react-redux';
+import { LOGOUT } from '../redux/actiontypes';
 const Sidebar = () => {
   const sideyy = JSON.parse(localStorage.getItem("sidebar"));
   const data = sideyy.data.index;
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const store = useSelector((state)=>state);
   const [notes,setnotes] = useState(false);
   const [archive,setarchive] = useState(false);
   const [deleted,setdeleted] = useState(false);
@@ -25,6 +29,14 @@ const Sidebar = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
+  useEffect(()=>{
+     if(store.user.logout === true){
+      navigate("/");
+      document.body.style.backgroundColor="white";
+      dispatch({type:LOGOUT , payload:false});
+     }
+           // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[store.user.logout]);
   return (
     <>
      <div className="upper">
@@ -87,8 +99,10 @@ const Sidebar = () => {
         <SettingsIcon className='bttnn'/>
         <h2>Settings</h2>
         </div>
-        <div className="ul">
-        <LogoutRoundedIcon className='bttnn'/>
+        <div className="ul" onClick={(e)=>{
+             dispatch({type:LOGOUT , payload:true});
+        }} >
+        <LogoutRoundedIcon className='bttnn'  />
         <h2>Logout</h2>
         </div>
       <div className="ul">

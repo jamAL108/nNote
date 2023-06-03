@@ -27,12 +27,12 @@ import{
 //  DELETEDERROR,
 //  SETTINGS
 } from '../actiontypes.js';
-
 const initialstate={
     authordata:null,
     login:false,
     loginerror:"",
-    signuperror:""
+    signuperror:"",
+    logout:false
     
 }  
 
@@ -43,8 +43,9 @@ const user =(state=initialstate , action) =>{
                 localStorage.setItem("user",JSON.stringify({data}));
                 break;
         case LOGOUT:
-            localStorage.removeItem("user");
-            break;
+            return{
+                ...state , logout:action.payload
+            }
         case LOGINERROR:
             return{
                 ...state , loginerror:action.payload

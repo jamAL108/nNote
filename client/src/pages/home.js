@@ -31,6 +31,7 @@ var pageName = currentPageUrl.substring(currentPageUrl.lastIndexOf("/") + 1);
 console.log(pageName);
 if(pageName==="home"){
   console.log(pageName);
+  
   window.addEventListener('scroll', function() {
     let currentScrollPos = window.pageYOffset;
     let nav = document.querySelector(".nav");

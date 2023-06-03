@@ -129,6 +129,7 @@
 .other .fourth  .ul{
   width: 95%;
   height: 20%;
+  border-radius: 44px;
 } 
 
 .other .fourth  .ul:last-child{
