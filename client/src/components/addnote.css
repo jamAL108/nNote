@@ -2,7 +2,8 @@
 .addnote{
     width: 100vw;
     height: 100vh;
-    transition: all 1s;
+    transition: all 0.5s;
+    background-color: #ffffff;
 }
 
 .addnote header{
@@ -14,10 +15,20 @@
     color: #22211C;
 }
 .addnote header .left{
-    margin-left: 0.5rem;
+    margin-left: 0.8rem;
+    width: 1.9rem;
+    height: 1.9rem;
+}
+.addnote header .left .bttn{
+    width: 100%;
+    height: 100%;
+}
+.addnote header .left .bttn .css-i4bv87-MuiSvgIcon-root{
+    width: 100%;
+    height: 100%;
 }
 .addnote header .right{
-    margin-right: 0.8rem;
+    margin-right: 1.2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
@@ -43,6 +54,7 @@
     letter-spacing: 0.03rem;
     color: #1B191C;
     font-family:"Roboto" , sans-serif;
+    background-color: inherit;
 }
 .addnote .content .input1::placeholder{
     color: #AAAAAA;
@@ -58,8 +70,140 @@
     caret-color: black;
     color: #1B191C;
     font-family:"Roboto" , sans-serif;
+    background-color: inherit;
 }
 .addnote .content .input2::placeholder{
    color: #7A7A7A;
 }
+.addnote .down{
+    display:flex;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 0rem;
+    width: 100vw;
+    height: 6vh;
+    justify-content:space-between;
+    align-items: center;
+}
+.addnote .down .color{
+    margin-left: 0.5rem;
+    width: 1.9rem;
+    height: 1.9rem;
+    z-index: 1;
+}
+.addnote .down .menu{
+    margin-right: 0.5rem;
+    width: 1.9rem;
+    height: 1.9rem;
+    z-index: 1;
+}
+.addnote .down .color .bttn , .addnote .down .menu .bttn{
+    width: 100%;
+    height: 100%;
+}
+.addnote .down .color .bttn .css-i4bv87-MuiSvgIcon-root , .addnote .down .menu .bttn .css-i4bv87-MuiSvgIcon-root{
+    width: 100%;
+    height: 100%;
+}
+.addnote .down  .edit{
+    width: 80%;
+    text-align: center;
+    z-index: 1;
+}
+.addnote .down  .edit span{
+    font-family: "Roboto" , sans-serif;
+    font-size: 0.68rem;
+    text-align: center;
+}
 
+.addnote .down .color-picker{
+    width: 100vw;
+    height: 35vh;
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    z-index: 3;
+    /* transition: all 1.5s; */
+    animation: transitionIn 0.5s;
+}
+
+.addnote .down .color-picker .head{
+    width: 100vw;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 40px;
+}
+
+@keyframes transitionIn {
+    from{
+       opacity: 0;
+       transform: translateY(200px);
+    }
+    to{
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+.addnote .down .menu-picker{
+    width: 100vw;
+    height: 35vh;
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    z-index: 3;
+    /* transition: all 1.5s; */
+    animation: transitionIn 0.5s;
+}
+
+
+.addnote .down .menu-picker {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+.addnote .down .menu-picker .pull{
+    width: 100vw;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 40px;
+}
+.addnote .down .menu-picker .menus{
+    width: 100vw;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    color: #222222;
+}
+
+.addnote .down .menu-picker .menus .ul{
+    width: 90%;
+    height: 20%;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    align-items: center;
+    margin-left: 0.5rem;
+}
+.addnote .down .menu-picker .menus .ul:hover{
+    background-color:#E0E0E0 ;
+}
+.addnote .down .menu-picker .menus .ul h2{
+    font-family: "Roboto" , sans-serif;
+    font-size: 1rem;
+    margin:0rem ;
+    font-weight: 200;
+}
+.addnote .down .menu-picker .menus .ul .bttn{
+    width: 65%;
+    height: 65%;
+}
+.addnote .down .menu-picker .menus .ul .bttn .css-i4bv87-MuiSvgIcon-root {
+    width: 100%;
+    height: 100%;
+    font-weight: 200;
+}
