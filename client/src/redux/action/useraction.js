@@ -27,7 +27,7 @@ import{
 //  DELETEDERROR,
 //  SETTINGS
 } from '../actiontypes.js';
-const URL= "http://localhost:8000";
+const URL= "https://nnote.onrender.com" ;
 
 
 export const login = (formdata,navigate)=>async(dispatch)=>{

@@ -26,8 +26,8 @@ const Login = () => {
         seterror(store.user.loginerror);
       }
       console.log(error);
-      let temp1 = document.querySelector("#box3");
-      temp1.style.marginBottom="1.3rem";
+    //   let temp1 = document.querySelector("#box4");
+    //   temp1.style.marginBottom="1.7rem";
       // eslint-disable-next-line react-hooks/exhaustive-deps
     },[store.user.loginerror]);
   return (
@@ -49,19 +49,19 @@ const Login = () => {
                 setsmallerror("");
                 seterror("");
                 dispatch({type:LOGINERROR , payload:{}});
-                let temp1 = document.querySelector("#box3");
-                temp1.style.marginTop="1.3rem";
+                // let temp1 = document.querySelector("#box4");
+                // temp1.style.marginTop="1.5rem";
             }} />
         </div>
-        <div ref={temp1} className="box" id='box3' >
+        <div ref={temp1} className="box" id='box4' >
             <HttpsIcon className='icon'/>
             <input className='input3' type="password" placeholder='password' value={value.password} onChange={(e)=>{
                 setvalue({...value , password:e.target.value});
                 setsmallerror("");
                 seterror("");
                 dispatch({type:LOGINERROR , payload:{}});
-                let temp1 = document.querySelector("#box3");
-                temp1.style.marginBttom="1.3rem";
+                // let temp1 = document.querySelector("#box4");
+                // temp1.style.marginBttom="1.5rem";
             }} />
         </div>
         {(smallerror.length!==0 || error.length!==0) &&(
@@ -73,8 +73,8 @@ const Login = () => {
         e.preventDefault();
         if(value.email.length===0 || value.password.length===0 ){
             setsmallerror("please enter the details properly");
-            let temp1 = document.querySelector("#box3");
-            temp1.style.marginBottom="1.3rem";
+            // let temp1 = document.querySelector("#box4");
+            // temp1.style.marginBottom="1.7rem";
         }else{
             dispatch(login(value,navigate));
         }

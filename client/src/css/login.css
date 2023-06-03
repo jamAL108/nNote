@@ -89,7 +89,12 @@
     border-bottom: 2px solid #808080;
     display: flex;
 }
-
+.login form #box4{
+    width: 75%;
+    margin-bottom: 1.2rem;
+    border-bottom: 2px solid #808080;
+    display: flex;
+}
 .login form .box input{
     border: none;
     outline: none;
@@ -113,6 +118,8 @@ input:focus + .box .icon{
     color: red;
     font-size: 0.7rem;
     transform: all 2s;
+    margin-top: -0.6rem;
+    margin-bottom: 0.3rem;
   }
   .login form .submitt{
     width: 100%;
@@ -124,7 +131,7 @@ input:focus + .box .icon{
 .login form .submitt .bttttn {
     width: 70%;
     height: 60%;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
