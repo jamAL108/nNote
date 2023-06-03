@@ -3,9 +3,11 @@
     width: 100vw;
     height: 100vh;
     transition: all 0.5s;
-    background-color: #ffffff;
+    background-color: #f3f3f3;
 }
-
+.addnote .bttn{
+    color: black;
+}
 .addnote header{
     width: 100vw;
     height: 8vh;
@@ -86,13 +88,13 @@
     align-items: center;
 }
 .addnote .down .color{
-    margin-left: 0.5rem;
+    margin-left: 0.8rem;
     width: 1.9rem;
     height: 1.9rem;
     z-index: 1;
 }
 .addnote .down .menu{
-    margin-right: 0.5rem;
+    margin-right: 0.8rem;
     width: 1.9rem;
     height: 1.9rem;
     z-index: 1;
@@ -119,7 +121,7 @@
 .addnote .down .color-picker{
     width: 100vw;
     height: 35vh;
-    background-color: #ffffff;
+    background-color: #EFF4FA;
     position: fixed;
     bottom: 0;
     z-index: 3;
@@ -135,7 +137,56 @@
     align-items: center;
     border-radius: 40px;
 }
+.addnote .down .color-picker .head .pull{
+    margin-right: 0.6rem;
+    font-weight: 100;
+}
+.addnote .down .color-picker .head p{
+    margin-left: 0.6rem;
 
+}
+
+.addnote .down .color-picker .colors{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 85%;
+}
+.addnote .down .color-picker .colors .b1{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    grid-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.addnote .down .color-picker .colors .b1 .box{
+    height: 45%;
+    width: 15.6%;
+    border-radius: 50%;
+    border: 2.5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.addnote .down .color-picker .colors .b1 .bt1{
+    border: 2.5px solid #1A54B8;
+}
+.addnote .down .color-picker .colors .b1 .box .bttn{
+    height: 90%;
+    width: 90%;
+    color: #1A54B8;
+}
+
+.addnote .down .color-picker .colors .b1 .box .bttn .css-i4bv87-MuiSvgIcon-root , .addnote .down .color-picker .colors .b1 .box .bique  .css-i4bv87-MuiSvgIcon-root{
+    width: 100%;
+    height: 100%;
+}
+.addnote .down .color-picker .colors .b1 .box .bique{
+    height: 90%;
+    width: 90%;
+    color: black;
+}
 @keyframes transitionIn {
     from{
        opacity: 0;
@@ -147,10 +198,26 @@
     }
 }
 
+.addnote .down .menu-picker.hee{
+    transition: all 2s;
+    animation: transitionOut 10s;
+}
+
+@keyframes transitionOut{
+    from{
+    opacity: 1;
+    transform: translateY(0);
+    }
+    to{
+        opacity: 0;
+        transform: translateY(300px);
+     }
+}
+
 .addnote .down .menu-picker{
     width: 100vw;
     height: 35vh;
-    background-color: #ffffff;
+    background-color: #EFF4FA;
     position: fixed;
     bottom: 0;
     z-index: 3;
@@ -172,6 +239,9 @@
     justify-content: flex-end;
     align-items: center;
     border-radius: 40px;
+}
+.addnote .down .menu-picker .pull .bttn{
+    margin-right: 0.6rem;
 }
 .addnote .down .menu-picker .menus{
     width: 100vw;
