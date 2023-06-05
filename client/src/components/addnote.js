@@ -198,7 +198,7 @@ const Addnote = () => {
                   if(col.c1!==true){
                   setcol({c1:true , c2:false , c3:false , c4:false , c5:false , c6:false , c7:false , c8:false });
                  let tpp = document.querySelector("#bt1");
-                 tpp.style.border="2px solid #1A54B8";
+                 tpp.style.border="1.3px solid #1A54B8";
                  let tpp1 = document.querySelector(".color-picker");
                  let note = temp1.current;
                  note.style.backgroundColor="#666666";
@@ -208,7 +208,7 @@ const Addnote = () => {
               if(i!==1){
                 const tp =`${i}`;
                 const tppp = document.querySelector("#bt"+(tp));
-                tppp.style.border="2px solid black";
+                tppp.style.border="1.3px solid black";
              }
             }
                   }
@@ -232,7 +232,7 @@ const Addnote = () => {
                   // note.style.backgroundColor="color-mix(in srgb ,#666666, #F29F75)";
                   note.style.backgroundColor="#61402F";
                   tpp1.style.backgroundColor="#F29F75";
-                  tpp.style.border="2px solid #1A54B8";
+                  tpp.style.border="1.3px solid #1A54B8";
                   setfinal({bg:"#F29F75" , bgcolor:"#61402F"});
                   for(var i =1;i<=8;i++){
                    if(i!==2){
@@ -240,7 +240,7 @@ const Addnote = () => {
                     const val = (tee)+(i);
                      const tppp = document.querySelector(val);
                      console.log(tppp);
-                     tppp.style.border="2px solid black";
+                     tppp.style.border="1.3px solid black";
                   }
                  }
                 }} style={{backgroundColor:"#F29F75"}} >
@@ -265,7 +265,7 @@ const Addnote = () => {
                    if(i!==3){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
-                     tppp.style.border="2px solid black";
+                     tppp.style.border="1.3px solid black";
                   }
                  }
                 }} style={{backgroundColor:"#FAAFA9"}} >
@@ -280,7 +280,7 @@ const Addnote = () => {
                   setcol({c1:false , c2:false , c3:false , c4:true , c5:false , c6:false , c7:false , c8:false });
                   }
                   let tpp = document.querySelector("#bt4");
-                  tpp.style.border="2px solid #1A54B8";
+                  tpp.style.border="1.3px solid #1A54B8";
                   let tpp1 = document.querySelector(".color-picker");
                   let note = temp1.current;
                   note.style.backgroundColor="#625A58";
@@ -307,7 +307,7 @@ const Addnote = () => {
                   setcol({c1:false, c2:false , c3:false , c4:false , c5:true , c6:false , c7:false , c8:false });
                   }
                   let tpp = document.querySelector("#bt5");
-                  tpp.style.border="2px solid #1A54B8";
+                  tpp.style.border="1.3px solid #1A54B8";
                   let tpp1 = document.querySelector(".color-picker");
                   let note = temp1.current;
                   note.style.backgroundColor="#485855";
@@ -317,7 +317,7 @@ const Addnote = () => {
                    if(i!==5){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
-                     tppp.style.border="2px solid black";
+                     tppp.style.border="1.3px solid black";
                   }
                  }
                 }} style={{backgroundColor:"#B4DED4"}} >
@@ -332,7 +332,7 @@ const Addnote = () => {
                   setcol({c1:false, c2:false , c3:false , c4:false , c5:false , c6:true , c7:false , c8:false });
                   }
                   let tpp = document.querySelector("#bt6");
-                  tpp.style.border="2px solid #1A54B8";
+                  tpp.style.border="1.3px solid #1A54B8";
                   let tpp1 = document.querySelector(".color-picker");
                   let note = temp1.current;
                   note.style.backgroundColor="#544C59";
@@ -342,7 +342,7 @@ const Addnote = () => {
                    if(i!==6){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
-                     tppp.style.border="2px solid black";
+                     tppp.style.border="1.3px solid black";
                   }
                  }
                 }} style={{backgroundColor:"#D3BFDB"}} >
@@ -357,7 +357,7 @@ const Addnote = () => {
                   setcol({c1:false, c2:false , c3:false , c4:false , c5:false , c6:false , c7:true , c8:false });
                   }
                   let tpp = document.querySelector("#bt7");
-                  tpp.style.border="2px solid #1A54B8";
+                  tpp.style.border="1.3px solid #1A54B8";
                   let tpp1 = document.querySelector(".color-picker");
                   let note = temp1.current;
                   note.style.backgroundColor="#67634A";
@@ -367,7 +367,7 @@ const Addnote = () => {
                    if(i!==7){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
-                     tppp.style.border="2px solid black";
+                     tppp.style.border="1.3px solid black";
                   }
                  }
                 }} style={{backgroundColor:"#FFF8B9"}} >
@@ -382,7 +382,7 @@ const Addnote = () => {
                   setcol({c1:false, c2:false , c3:false , c4:false , c5:false , c6:false , c7:false , c8:true });
                   }
                   let tpp = document.querySelector("#bt8");
-                  tpp.style.border="2px solid #1A54B8";
+                  tpp.style.border="1.3px solid #1A54B8";
                   let tpp1 = document.querySelector(".color-picker");
                   let note = temp1.current;
                   note.style.backgroundColor="#475258";
@@ -392,7 +392,7 @@ const Addnote = () => {
                    if(i!==8){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
-                     tppp.style.border="2px solid black";
+                     tppp.style.border="1.3px solid black";
                   }
                  }
                 }} style={{backgroundColor:"#AFCCDC"}} >
