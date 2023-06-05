@@ -3,9 +3,9 @@ import{
  LOGIN ,
 //  SIGNUP ,
  LOGINERROR ,
- SIGNUPERROR 
-//  ADDNOTE ,
-//  ADDNOTEERROR ,
+ SIGNUPERROR ,
+ ADDNOTE ,
+ ADDNOTEERROR 
 //  DELETENOTE ,
 //  DELETENOTEERROR,
 //   UPDATENOTE,
@@ -32,7 +32,9 @@ const initialstate={
     login:false,
     loginerror:"",
     signuperror:"",
-    logout:false
+    logout:false,
+    addnote:false,
+    addnoteerror:""
     
 }  
 
@@ -53,7 +55,15 @@ const user =(state=initialstate , action) =>{
          case SIGNUPERROR:
             return{
                  ...state , signuperror:action.payload
-            }    
+            }
+         case ADDNOTE:
+            return{
+                ...state , addnote:action.payload
+            }
+         case ADDNOTEERROR:
+            return{
+                ...state , addnoteerror:action.payload
+            }          
 
         default:
             return state;    

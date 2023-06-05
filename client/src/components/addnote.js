@@ -15,14 +15,101 @@ import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
 import './addnote.css';
 import FormatColorResetOutlinedIcon from '@mui/icons-material/FormatColorResetOutlined';
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
+import { useSelector , useDispatch } from 'react-redux';
+import { ADDNOTE } from '../redux/actiontypes';
+// import { addnote } from '../redux/action/useraction';
 const Addnote = () => {
     const [pin,setpin] = useState(false);
     const temp1 = useRef(null);
+    const dispatch= useDispatch();
     const [archive ,setarchive] = useState(false);
     const navigate = useNavigate();
+    const store = useSelector((state)=>state);
     const [date , setdate] = useState("");
+    const [title,settitle]=useState("");
+    const [note,setnote]=useState("");
     const [color , setcolor]= useState(false);
     const [menu , setmenu] = useState(false);
+    const [final,setfinal]=useState({
+      bg:"white",
+      bgcolor:"#666666"
+    });
+    useEffect(()=>{
+        if(color===true){
+          let tpp1 = document.querySelector(".color-picker");
+          tpp1.style.backgroundColor=final.bg;
+          for(var i=1;i<=8;i++){
+            var temp = "c"+(i);
+            if(`col.${temp}`===true){
+              var del = "#bt"+(i);
+              let tpp = document.querySelector(del);
+              tpp.style.border="2px solid #1A54B8";
+            }
+          }
+        }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[color])
+    useEffect(()=>{
+        if(store.user.addnote===true){
+          dispatch({type:ADDNOTE , payload:false});
+          navigate("/home");
+        }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[store.user.Addnote])
+    useEffect(()=>{
+        if(menu===true){
+          const temp = temp1.current;
+          temp.style.backgroundColor=final.bgcolor;
+        }
+        if(menu===false){
+          const temp = temp1.current;
+          temp.style.backgroundColor=final.bg;
+        }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[menu])
+    // const [array , setarray]=useState([
+    //    {
+    //     id:"1",
+    //     bg:"white",
+    //     bgshadow:"#666666",
+    //    },
+    //    {
+    //     id:"2",
+    //     bg:"#F29F75",
+    //     bgshadow:"#61402F",
+    //    },
+    //    {
+    //     id:"3",
+    //     bg:"#FAAFA9",
+    //     bgshadow:"#644743",
+    //    },
+    //    {
+    //     id:"4",
+    //     bg:"#FAAFA9",
+    //     bgshadow:"#67634A",
+    //    },
+    //    {
+    //     id:"5",
+    //     bg:"#F5E2DC",
+    //     bgshadow:"#625A58",
+    //    },
+   //    {
+    //     id:"6",
+    //     bg:"#B4DED4",
+    //     bgshadow:"#485855",
+    //    },
+      //     {
+      //     id:"7",
+      //     bg:"#AFCCDC",
+      //     bgshadow:"#475258",
+   //     },
+  //     {
+      //     id:"8",
+      //     bg:"#D3BFDB",
+      //     bgshadow:"#544C59",
+      //    }
+
+    // ])
     const [col,setcol] = useState({
       c1:true,
       c2:false,
@@ -63,8 +150,12 @@ const Addnote = () => {
          </div>
       </header>
       <div className="content">
-       <input className='input1' type="text" placeholder='Title'/>
-       <textarea placeholder='Note' type="text" className='input2' cols="30" rows="30"></textarea>
+       <input className='input1' type="text" placeholder='Title' onChange={(e)=>{
+        settitle(e.target.value);
+       }} />
+       <textarea placeholder='Note' type="text" className='input2' cols="30" rows="30" onChange={(e)=>{
+        setnote(e.target.value);
+       }}></textarea>
       </div>
       <div className="down">
          <div className="color">
@@ -72,7 +163,7 @@ const Addnote = () => {
               e.preventDefault();
               setcolor(true);
               const tempi = document.querySelector(".addnote");
-              tempi.style.backgroundColor="#666666";
+              tempi.style.backgroundColor=final.bgcolor;
              }} />
          </div>
          <div className="edit">
@@ -82,8 +173,6 @@ const Addnote = () => {
          <MoreVertOutlinedIcon className='bttn' onClick={(e)=>{
             e.preventDefault();
             setmenu(true);
-            const tempi = document.querySelector(".addnote");
-            tempi.style.backgroundColor="#666666";
          }} />
          </div>
           {color===true &&(
@@ -93,6 +182,11 @@ const Addnote = () => {
                 <div className="pull">
                   <KeyboardArrowDownOutlinedIcon className='bttn' onClick={(e)=>{
                     e.preventDefault();
+                    let tpp1 = document.querySelector(".color-picker");
+                    let note = temp1.current;
+                    note.style.backgroundColor=final.bg;
+                    tpp1.style.backgroundColor=final.bg;
+
                     setcolor(false);
                   }} />
                 </div>
@@ -104,13 +198,17 @@ const Addnote = () => {
                   if(col.c1!==true){
                   setcol({c1:true , c2:false , c3:false , c4:false , c5:false , c6:false , c7:false , c8:false });
                  let tpp = document.querySelector("#bt1");
-                 tpp.style.border="2.5px solid #1A54B8";
-
+                 tpp.style.border="2px solid #1A54B8";
+                 let tpp1 = document.querySelector(".color-picker");
+                 let note = temp1.current;
+                 note.style.backgroundColor="#666666";
+                 tpp1.style.backgroundColor="#EFF4FA";
+                 setfinal({bg:"white" , bgcolor:"#666666"});
              for(var i =1;i<=8;i++){
               if(i!==1){
                 const tp =`${i}`;
                 const tppp = document.querySelector("#bt"+(tp));
-                tppp.style.border="2.5px solid black";
+                tppp.style.border="2px solid black";
              }
             }
                   }
@@ -131,16 +229,18 @@ const Addnote = () => {
                   let tpp = document.querySelector("#bt2");
                   let tpp1 = document.querySelector(".color-picker");
                   let note = temp1.current;
-                  note.style.backgroundColor="#F29F75";
+                  // note.style.backgroundColor="color-mix(in srgb ,#666666, #F29F75)";
+                  note.style.backgroundColor="#61402F";
                   tpp1.style.backgroundColor="#F29F75";
-                 tpp.style.border="2.5px solid #1A54B8";
+                  tpp.style.border="2px solid #1A54B8";
+                  setfinal({bg:"#F29F75" , bgcolor:"#61402F"});
                   for(var i =1;i<=8;i++){
                    if(i!==2){
                     const tee="#bt";
                     const val = (tee)+(i);
                      const tppp = document.querySelector(val);
                      console.log(tppp);
-                     tppp.style.border="2.5px solid black";
+                     tppp.style.border="2px solid black";
                   }
                  }
                 }} style={{backgroundColor:"#F29F75"}} >
@@ -155,12 +255,17 @@ const Addnote = () => {
                   setcol({c1:false , c2:false , c3:true , c4:false , c5:false , c6:false , c7:false , c8:false });
                   }
                   let tpp = document.querySelector("#bt3");
-                  tpp.style.border="2.5px solid #1A54B8"
+                  tpp.style.border="2px solid #1A54B8";
+                  let tpp1 = document.querySelector(".color-picker");
+                  let note = temp1.current;
+                  note.style.backgroundColor="#644743";
+                  tpp1.style.backgroundColor="#FAAFA9";
+                  setfinal({bg:"#FAAFA9" , bgcolor:"#644743"});
                   for(var i =1;i<=8;i++){
                    if(i!==3){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
-                     tppp.style.border="2.5px solid black";
+                     tppp.style.border="2px solid black";
                   }
                  }
                 }} style={{backgroundColor:"#FAAFA9"}} >
@@ -175,15 +280,20 @@ const Addnote = () => {
                   setcol({c1:false , c2:false , c3:false , c4:true , c5:false , c6:false , c7:false , c8:false });
                   }
                   let tpp = document.querySelector("#bt4");
-                  tpp.style.border="2.5px solid #1A54B8"
+                  tpp.style.border="2px solid #1A54B8";
+                  let tpp1 = document.querySelector(".color-picker");
+                  let note = temp1.current;
+                  note.style.backgroundColor="#625A58";
+                  tpp1.style.backgroundColor="#F5E2DC";
+                  setfinal({bg:"#F5E2DC" , bgcolor:"#625A58"});
                   for(var i =1;i<=8;i++){
                    if(i!==4){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
-                     tppp.style.border="2.5px solid black";
+                     tppp.style.border="2px solid black";
                   }
                  }
-                }} style={{backgroundColor:"#FFF8B9"}} >
+                }} style={{backgroundColor:"#F5E2DC"}} >
                     {col.c4===true &&(
                       <DoneOutlinedIcon className='bttn'/>
                     )}
@@ -197,15 +307,20 @@ const Addnote = () => {
                   setcol({c1:false, c2:false , c3:false , c4:false , c5:true , c6:false , c7:false , c8:false });
                   }
                   let tpp = document.querySelector("#bt5");
-                  tpp.style.border="2.5px solid #1A54B8"
+                  tpp.style.border="2px solid #1A54B8";
+                  let tpp1 = document.querySelector(".color-picker");
+                  let note = temp1.current;
+                  note.style.backgroundColor="#485855";
+                  tpp1.style.backgroundColor="#B4DED4";
+                  setfinal({bg:"#B4DED4" , bgcolor:"#485855"});
                   for(var i =1;i<=8;i++){
                    if(i!==5){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
-                     tppp.style.border="2.5px solid black";
+                     tppp.style.border="2px solid black";
                   }
                  }
-                }} style={{backgroundColor:"#D3BFDB"}} >
+                }} style={{backgroundColor:"#B4DED4"}} >
                     {col.c5===true &&(
                       <DoneOutlinedIcon className='bttn'/>
                     )}
@@ -217,15 +332,20 @@ const Addnote = () => {
                   setcol({c1:false, c2:false , c3:false , c4:false , c5:false , c6:true , c7:false , c8:false });
                   }
                   let tpp = document.querySelector("#bt6");
-                  tpp.style.border="2.5px solid #1A54B8"
+                  tpp.style.border="2px solid #1A54B8";
+                  let tpp1 = document.querySelector(".color-picker");
+                  let note = temp1.current;
+                  note.style.backgroundColor="#544C59";
+                  tpp1.style.backgroundColor="#D3BFDB";
+                  setfinal({bg:"#D3BFDB" , bgcolor:"#544C59"});
                   for(var i =1;i<=8;i++){
                    if(i!==6){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
-                     tppp.style.border="2.5px solid black";
+                     tppp.style.border="2px solid black";
                   }
                  }
-                }} style={{backgroundColor:"#B4DED4"}} >
+                }} style={{backgroundColor:"#D3BFDB"}} >
                     {col.c6===true &&(
                       <DoneOutlinedIcon className='bttn'/>
                     )}
@@ -237,15 +357,20 @@ const Addnote = () => {
                   setcol({c1:false, c2:false , c3:false , c4:false , c5:false , c6:false , c7:true , c8:false });
                   }
                   let tpp = document.querySelector("#bt7");
-                  tpp.style.border="2.5px solid #1A54B8"
+                  tpp.style.border="2px solid #1A54B8";
+                  let tpp1 = document.querySelector(".color-picker");
+                  let note = temp1.current;
+                  note.style.backgroundColor="#67634A";
+                  tpp1.style.backgroundColor="#FFF8B9";
+                  setfinal({bg:"#FFF8B9" , bgcolor:"#67634A"});
                   for(var i =1;i<=8;i++){
                    if(i!==7){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
-                     tppp.style.border="2.5px solid black";
+                     tppp.style.border="2px solid black";
                   }
                  }
-                }} style={{backgroundColor:"#F5E2DC"}} >
+                }} style={{backgroundColor:"#FFF8B9"}} >
                     {col.c7===true &&(
                       <DoneOutlinedIcon className='bttn'/>
                     )}
@@ -257,15 +382,20 @@ const Addnote = () => {
                   setcol({c1:false, c2:false , c3:false , c4:false , c5:false , c6:false , c7:false , c8:true });
                   }
                   let tpp = document.querySelector("#bt8");
-                  tpp.style.border="2.5px solid #1A54B8"
+                  tpp.style.border="2px solid #1A54B8";
+                  let tpp1 = document.querySelector(".color-picker");
+                  let note = temp1.current;
+                  note.style.backgroundColor="#475258";
+                  tpp1.style.backgroundColor="#AFCCDC";
+                  setfinal({bg:"#AFCCDC" , bgcolor:"#475258"});
                   for(var i =1;i<=8;i++){
                    if(i!==8){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
-                     tppp.style.border="2.5px solid black";
+                     tppp.style.border="2px solid black";
                   }
                  }
-                }} style={{backgroundColor:"#E9E3D3"}} >
+                }} style={{backgroundColor:"#AFCCDC"}} >
                     {col.c8===true &&(
                       <DoneOutlinedIcon className='bttn'/>
                     )}
@@ -288,7 +418,19 @@ const Addnote = () => {
                 </div>
 
                 <div className="menus">
-              <div className="ul">
+              <div className="ul" onClick={(e)=>{
+                  const data ={
+                    pin:pin,
+                    archive:archive,
+                    bg:final.bg,
+                    bgcolor:final.bg,
+                    title:title,
+                    note:note
+                  }
+                  console.log(data);
+                  // dispatch(addnote(data));
+
+              }}>
                  <LibraryAddOutlinedIcon className='bttn' />
                  <h2>Save note</h2>
               </div>
