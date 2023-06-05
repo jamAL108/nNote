@@ -18,6 +18,7 @@ import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
 import { useSelector , useDispatch } from 'react-redux';
 import { ADDNOTE } from '../redux/actiontypes';
 // import { addnote } from '../redux/action/useraction';
+import FontDownloadOutlinedIcon from '@mui/icons-material/FontDownloadOutlined';
 const Addnote = () => {
     const [pin,setpin] = useState(false);
     const temp1 = useRef(null);
@@ -30,6 +31,7 @@ const Addnote = () => {
     const [note,setnote]=useState("");
     const [color , setcolor]= useState(false);
     const [menu , setmenu] = useState(false);
+    const [font, setfont] = useState(false);
     const [final,setfinal]=useState({
       bg:"white",
       bgcolor:"#666666"
@@ -67,6 +69,17 @@ const Addnote = () => {
         }
             // eslint-disable-next-line react-hooks/exhaustive-deps
     },[menu])
+    useEffect(()=>{
+      if(font===true){
+         const temp = temp1.current;
+          temp.style.backgroundColor=final.bgcolor;
+      }
+      if(font===false){
+        const temp = temp1.current;
+        temp.style.backgroundColor=final.bg;
+      }
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[font])
     // const [array , setarray]=useState([
     //    {
     //     id:"1",
@@ -158,6 +171,7 @@ const Addnote = () => {
        }}></textarea>
       </div>
       <div className="down">
+        <div className="left">
          <div className="color">
              <ColorLensOutlinedIcon className='bttn' onClick={(e)=>{
               e.preventDefault();
@@ -165,6 +179,15 @@ const Addnote = () => {
               const tempi = document.querySelector(".addnote");
               tempi.style.backgroundColor=final.bgcolor;
              }} />
+         </div>
+         <div className="font">
+          <FontDownloadOutlinedIcon className='bttn' onClick={(e)=>{
+             e.preventDefault();
+             setfont(true);
+             const tempi = document.querySelector(".addnote");
+             tempi.style.backgroundColor=final.bgcolor;
+          }}/>
+         </div>
          </div>
          <div className="edit">
           <span> Edited {date}</span>
@@ -175,6 +198,19 @@ const Addnote = () => {
             setmenu(true);
          }} />
          </div>
+         {font===true &&(
+          <div className="font-list">
+             <div className="top">
+              <p className="title">fonts</p>
+              <div className="pull">
+                  <KeyboardArrowDownOutlinedIcon className='bttn' onClick={(e)=>{
+                    e.preventDefault();
+                    setfont(false);
+                  }} />
+                </div>
+             </div>
+          </div>
+         )}
           {color===true &&(
             <div className="color-picker">
               <div className="head">

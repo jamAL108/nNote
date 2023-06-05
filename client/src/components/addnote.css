@@ -87,12 +87,30 @@
     justify-content:space-between;
     align-items: center;
 }
-.addnote .down .color{
-    margin-left: 0.8rem;
+.addnote .down .left{
+    margin-left: 0.6rem;
+    width: 4rem;
+    height: 1.9rem;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 0.4rem;
+}
+.addnote .down .left .color{
     width: 1.9rem;
     height: 1.9rem;
     z-index: 1;
 }
+.addnote .down .left .font{
+    width: 1.9rem;
+    height: 1.9rem;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .addnote .down .menu{
     margin-right: 0.8rem;
     width: 1.9rem;
@@ -108,7 +126,8 @@
     height: 100%;
 }
 .addnote .down  .edit{
-    width: 80%;
+    width: 60%;
+    height: 1.6rem;
     text-align: center;
     z-index: 1;
 }
@@ -202,6 +221,30 @@
     transition: all 2s;
     animation: transitionOut 10s;
 }
+
+.addnote .down .font-list{
+    width: 100vw;
+    height: 35vh;
+    background-color: #EFF4FA;
+    position: fixed;
+    bottom: 0;
+    z-index: 3;
+    animation: transitionIn 0.5s;
+}
+.addnote .down .font-list .top{
+    width: 100vw;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 40px;
+}
+.addnote .down .font-list .top p{
+    margin-left: 0.6rem;
+}
+.addnote .down .font-list .top .pull{
+    margin-right: 0.6rem;
+} 
 
 @keyframes transitionOut{
     from{
