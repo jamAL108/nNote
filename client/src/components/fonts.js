@@ -62,7 +62,7 @@ const Fonts = () => {
                   setstyle1(item.name);
                   dispatch({type:FONTSE , payload:item.name})
                   var t9 = [...fons];
-                  for(var i=1;i<=8;i++){
+                  for(var i=1;i<=10;i++){
                     if(i!==(idx+1)){
                       var tempi = "#box"+(i);
                       t9[i]=false;
