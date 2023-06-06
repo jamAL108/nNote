@@ -8,12 +8,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
+import { NEWNOTE } from '../redux/propsactions';
+import { useDispatch } from 'react-redux';
 const Home = () => {
   useEffect(()=>{
     document.body.style.transition="all 0s";
   document.body.style.backgroundColor="#ffffff";
 },[]);
   const reffi = useRef(null);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const refu = useRef(null);
   const temp6 = useRef(null);
@@ -25,6 +28,8 @@ const Home = () => {
   const [cross , setcross] =useState(false);
   const [serh , setserh] =useState(true);
   const [action , setaction] =useState(false);
+  const col = [true,true,false,false,false,false,false,false,false];
+  const fon = [true,false,false,false,false,false,false,false,false];
   let prevScrollPos = window.pageYOffset;
   var currentPageUrl = window.location.href;
 var pageName = currentPageUrl.substring(currentPageUrl.lastIndexOf("/") + 1);
@@ -173,7 +178,17 @@ if(pageName==="home"){
       tpp.style.width="100vw";
       tpp.style.height="100vh";
       tpp.style.backgroundColor="white";
-      console.log(tpp);
+      let data = {
+        bg:"white",
+        bgcolor:"#666666",
+        fontstyle:"Roboto",
+        fonts:fon,
+        title:"",
+        note:"",
+        color:col
+      }
+      localStorage.setItem("temp",JSON.stringify(data));
+      dispatch({type:NEWNOTE,payload:true});
       navigate("/addnote");
     }} >
       <AddIcon ref={temp8} className='icons' />

@@ -1,0 +1,59 @@
+.addnote .down .font-list{
+    width: 100vw;
+    height: 35vh;
+    background-color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+    animation: transitionIn 0.5s;
+}
+@keyframes transitionOut{
+    from{
+    opacity: 1;
+    transform: translateY(0);
+    }
+    to{
+        opacity: 0;
+        transform: translateY(300px);
+     }
+}
+.addnote .down .font-list .top{
+    width: 100vw;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 40px;
+}
+.addnote .down .font-list .top p{
+    margin-left: 0.6rem;
+}
+.addnote .down .font-list .top .pull{
+    margin-right: 0.6rem;
+} 
+
+.addnote .down .font-list .bottom{
+    width: 90vw;
+    height: 40vh;
+    margin: auto;
+    overflow-y: scroll;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 40% 40%;
+    grid-gap: 1rem;
+}
+.addnote .down .font-list .bottom .fontbox{
+    /* width: 3rem; */
+    height: 3rem;
+    display: flex;
+    border-radius: 15%;
+    /* justify-content: center; */
+    align-items: center;
+    text-align: center;
+}
+.addnote .down .font-list .bottom .fontbox h1{
+    font-size: 1.5rem;
+    text-align: center;
+    margin-left: 1.3rem;
+}

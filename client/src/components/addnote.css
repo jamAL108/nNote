@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
+
+
+
+
 .addnote{
     width: 100vw;
     height: 100vh;
@@ -55,7 +60,7 @@
     caret-color: black;
     letter-spacing: 0.03rem;
     color: black;
-    font-family:"Roboto" , sans-serif;
+    /* font-family:"Roboto" , sans-serif; */
     background-color: inherit;
 }
 .addnote .content .input1::placeholder{
@@ -67,11 +72,11 @@
     outline: none;
     border: none;
     font-size: 1rem;
-    font-family: 'Verdana' , sans-serif;
+    /* font-family: 'Verdana' , sans-serif; */
     font-weight: 300;
     caret-color: black;
     color: black;
-    font-family:"Roboto" , sans-serif;
+    /* font-family:"Roboto" , sans-serif; */
     background-color: inherit;
 }
 .addnote .content .input2::placeholder{
@@ -191,6 +196,7 @@
 .addnote .down .color-picker .colors .b1 .bt1{
     border: 2.5px solid #1A54B8;
 }
+
 .addnote .down .color-picker .colors .b1 .box .bttn{
     height: 90%;
     width: 90%;
@@ -225,7 +231,7 @@
 .addnote .down .font-list{
     width: 100vw;
     height: 35vh;
-    background-color: #EFF4FA;
+    background-color: #ffffff;
     position: fixed;
     bottom: 0;
     z-index: 3;
@@ -260,11 +266,10 @@
 .addnote .down .menu-picker{
     width: 100vw;
     height: 35vh;
-    background-color: #EFF4FA;
+    background-color: #FFFFFF;
     position: fixed;
     bottom: 0;
     z-index: 3;
-    /* transition: all 1.5s; */
     animation: transitionIn 0.5s;
 }
 

@@ -19,7 +19,10 @@ import { useSelector , useDispatch } from 'react-redux';
 import { ADDNOTE } from '../redux/actiontypes';
 // import { addnote } from '../redux/action/useraction';
 import FontDownloadOutlinedIcon from '@mui/icons-material/FontDownloadOutlined';
+import Fonts from './fonts.js';
+import { FONTDISPLAY, FONTHIDE ,NEWNOTE } from '../redux/propsactions';
 const Addnote = () => {
+  const temp = JSON.parse(localStorage.getItem("temp"));
     const [pin,setpin] = useState(false);
     const temp1 = useRef(null);
     const dispatch= useDispatch();
@@ -27,30 +30,17 @@ const Addnote = () => {
     const navigate = useNavigate();
     const store = useSelector((state)=>state);
     const [date , setdate] = useState("");
-    const [title,settitle]=useState("");
-    const [note,setnote]=useState("");
+    const [title,settitle]=useState(temp.title);
+    const [note,setnote]=useState(temp.note);
     const [color , setcolor]= useState(false);
     const [menu , setmenu] = useState(false);
     const [font, setfont] = useState(false);
+    // const [cols , setcols] = useState(temp.cols);
     const [final,setfinal]=useState({
-      bg:"white",
-      bgcolor:"#666666"
+      bg:temp.bg,
+      bgcolor:temp.bgcolor
     });
-    useEffect(()=>{
-        if(color===true){
-          let tpp1 = document.querySelector(".color-picker");
-          tpp1.style.backgroundColor=final.bg;
-          for(var i=1;i<=8;i++){
-            var temp = "c"+(i);
-            if(`col.${temp}`===true){
-              var del = "#bt"+(i);
-              let tpp = document.querySelector(del);
-              tpp.style.border="2px solid #1A54B8";
-            }
-          }
-        }
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[color])
+    const [ff,setff] = useState(temp.fontstyle);
     useEffect(()=>{
         if(store.user.addnote===true){
           dispatch({type:ADDNOTE , payload:false});
@@ -73,6 +63,7 @@ const Addnote = () => {
       if(font===true){
          const temp = temp1.current;
           temp.style.backgroundColor=final.bgcolor;
+          dispatch({type:FONTDISPLAY,payload:true});
       }
       if(font===false){
         const temp = temp1.current;
@@ -80,59 +71,51 @@ const Addnote = () => {
       }
           // eslint-disable-next-line react-hooks/exhaustive-deps
     },[font])
-    // const [array , setarray]=useState([
-    //    {
-    //     id:"1",
-    //     bg:"white",
-    //     bgshadow:"#666666",
-    //    },
-    //    {
-    //     id:"2",
-    //     bg:"#F29F75",
-    //     bgshadow:"#61402F",
-    //    },
-    //    {
-    //     id:"3",
-    //     bg:"#FAAFA9",
-    //     bgshadow:"#644743",
-    //    },
-    //    {
-    //     id:"4",
-    //     bg:"#FAAFA9",
-    //     bgshadow:"#67634A",
-    //    },
-    //    {
-    //     id:"5",
-    //     bg:"#F5E2DC",
-    //     bgshadow:"#625A58",
-    //    },
-   //    {
-    //     id:"6",
-    //     bg:"#B4DED4",
-    //     bgshadow:"#485855",
-    //    },
-      //     {
-      //     id:"7",
-      //     bg:"#AFCCDC",
-      //     bgshadow:"#475258",
-   //     },
-  //     {
-      //     id:"8",
-      //     bg:"#D3BFDB",
-      //     bgshadow:"#544C59",
-      //    }
+    useEffect(()=>{
+      if(store.props.fonthide===true){
+        setfont(false);
+        const temp = temp1.current;
+        temp.style.backgroundColor=final.bg;
+        dispatch({type:FONTHIDE , payload:false});
+      }
+         // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[store.props.fonthide])
+    useEffect(()=>{
+      if(store.props.fontfamily.length!==0){
+        setff(store.props.fontfamily);
+        temp.fontstyle=store.props.fontfamily;
+        localStorage.setItem("temp",JSON.stringify(temp));
+      }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[store.props.fontfamily])
+    useEffect(()=>{
+      temp.bg=final.bg;
+      temp.bgcolor=final.bgcolor;
+      localStorage.setItem("temp",JSON.stringify(temp));
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[final])
+    useEffect(()=>{
+      if(title!==temp.title){
+        temp.title = title;
+        localStorage.setItem("temp",JSON.stringify(temp));
+      }
+       // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[title])
 
-    // ])
-    const [col,setcol] = useState({
-      c1:true,
-      c2:false,
-      c3:false,
-      c4:false,
-      c5:false,
-      c6:false,
-      c7:false,
-      c8:false
-    });
+    useEffect(()=>{
+      if(note!==temp.note){
+      temp.note = note;
+      localStorage.setItem("temp",JSON.stringify(temp));
+      }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[note])
+
+    const [col,setcol] = useState(temp.color);
+    useEffect(()=>{
+       temp.color=col;
+       localStorage.setItem("temp",JSON.stringify(temp));
+       // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[col])
     useEffect(()=>{
        const dat = new Date();
        setdate(dat.getDate());
@@ -141,11 +124,26 @@ const Addnote = () => {
        console.log(menu);
      // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
+    useEffect(()=>{
+      if(color===true){
+        let tpp1 = document.querySelector(".color-picker");
+        tpp1.style.backgroundColor=final.bg;
+        for(var i=1;i<=8;i++){
+          if(col[i]===true){
+            var del = "#bt"+(i);
+            let tpp = document.querySelector(del);
+            tpp.style.border="2px solid #1A54B8";
+          }
+        }
+      }
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[color])
   return (
     <div ref={temp1} className="addnote">
       <header>
         <div className="left">
          <ArrowBackOutlinedIcon className='bttn' onClick={(e)=>{
+          dispatch({type:NEWNOTE , payload:false});
            navigate(-1);
          }} />
          </div>
@@ -163,10 +161,10 @@ const Addnote = () => {
          </div>
       </header>
       <div className="content">
-       <input className='input1' type="text" placeholder='Title' onChange={(e)=>{
+       <input className='input1' value={title} style={{fontFamily:ff}} type="text" placeholder='Title' onChange={(e)=>{
         settitle(e.target.value);
        }} />
-       <textarea placeholder='Note' type="text" className='input2' cols="30" rows="30" onChange={(e)=>{
+       <textarea placeholder='Note' value={note} style={{fontFamily:ff}} type="text" className='input2' cols="30" rows="30" onChange={(e)=>{
         setnote(e.target.value);
        }}></textarea>
       </div>
@@ -199,17 +197,7 @@ const Addnote = () => {
          }} />
          </div>
          {font===true &&(
-          <div className="font-list">
-             <div className="top">
-              <p className="title">fonts</p>
-              <div className="pull">
-                  <KeyboardArrowDownOutlinedIcon className='bttn' onClick={(e)=>{
-                    e.preventDefault();
-                    setfont(false);
-                  }} />
-                </div>
-             </div>
-          </div>
+          <Fonts/>
          )}
           {color===true &&(
             <div className="color-picker">
@@ -231,8 +219,16 @@ const Addnote = () => {
                 <div className="b1">
                 <div className="box" id='bt1' onClick={(e)=>{
                   e.preventDefault();
-                  if(col.c1!==true){
-                  setcol({c1:true , c2:false , c3:false , c4:false , c5:false , c6:false , c7:false , c8:false });
+                  if(col[1]!==true){
+                    col[1]=true;
+                    var tt = [...col];
+                    for(var i=1;i<8;i++){
+                      if(i!==1){
+                        tt[i]=false;
+                      }
+                    }
+                    setcol(tt);
+                  }
                  let tpp = document.querySelector("#bt1");
                  tpp.style.border="1.3px solid #1A54B8";
                  let tpp1 = document.querySelector(".color-picker");
@@ -240,27 +236,33 @@ const Addnote = () => {
                  note.style.backgroundColor="#666666";
                  tpp1.style.backgroundColor="#EFF4FA";
                  setfinal({bg:"white" , bgcolor:"#666666"});
-             for(var i =1;i<=8;i++){
+             for( i =1;i<=8;i++){
               if(i!==1){
                 const tp =`${i}`;
                 const tppp = document.querySelector("#bt"+(tp));
                 tppp.style.border="1.3px solid black";
              }
-            }
-                  }
+             }
                 }} style={{backgroundColor:"white"}} >
-                    {col.c1===true &&(
+                    {col[1]===true &&(
                       <DoneOutlinedIcon className='bttn' />
                     )}
-                    {col.c1===false &&(
+                    {col[1]===false &&(
                       <FormatColorResetOutlinedIcon className='bique'/>
                     )}
                 </div>
 
                 <div className="box" id='bt2' onClick={(e)=>{
                   e.preventDefault();
-                  if(col.c2!==true){
-                  setcol({c1:false , c2:true , c3:false , c4:false , c5:false , c6:false , c7:false , c8:false });
+                  if(col[2]!==true){
+                    col[2]=true;
+                    var tt = [...col];
+                    for( var i=1;i<=8;i++){
+                      if(i!==2){
+                        tt[i]=false;
+                      }
+                    }
+                    setcol(tt);
                   }
                   let tpp = document.querySelector("#bt2");
                   let tpp1 = document.querySelector(".color-picker");
@@ -270,7 +272,7 @@ const Addnote = () => {
                   tpp1.style.backgroundColor="#F29F75";
                   tpp.style.border="1.3px solid #1A54B8";
                   setfinal({bg:"#F29F75" , bgcolor:"#61402F"});
-                  for(var i =1;i<=8;i++){
+                  for(i =1;i<=8;i++){
                    if(i!==2){
                     const tee="#bt";
                     const val = (tee)+(i);
@@ -280,15 +282,22 @@ const Addnote = () => {
                   }
                  }
                 }} style={{backgroundColor:"#F29F75"}} >
-                    {col.c2===true &&(
+                    {col[2]===true &&(
                       <DoneOutlinedIcon className='bttn'/>
                     )}
                 </div>
 
                 <div className="box" id='bt3' onClick={(e)=>{
                   e.preventDefault();
-                  if(col.c3!==true){
-                  setcol({c1:false , c2:false , c3:true , c4:false , c5:false , c6:false , c7:false , c8:false });
+                  if(col[3]!==true){
+                    col[3]=true;
+                    var tt = [...col];
+                    for(var i=1;i<=8;i++){
+                      if(i!==3){
+                        tt[i]=false;
+                      }
+                    }
+                    setcol(tt);
                   }
                   let tpp = document.querySelector("#bt3");
                   tpp.style.border="2px solid #1A54B8";
@@ -297,7 +306,7 @@ const Addnote = () => {
                   note.style.backgroundColor="#644743";
                   tpp1.style.backgroundColor="#FAAFA9";
                   setfinal({bg:"#FAAFA9" , bgcolor:"#644743"});
-                  for(var i =1;i<=8;i++){
+                  for( i =1;i<=8;i++){
                    if(i!==3){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
@@ -305,15 +314,22 @@ const Addnote = () => {
                   }
                  }
                 }} style={{backgroundColor:"#FAAFA9"}} >
-                    {col.c3===true &&(
+                    {col[3]===true &&(
                       <DoneOutlinedIcon className='bttn'/>
                     )}
                 </div>
 
                 <div className="box" id='bt4' onClick={(e)=>{
                   e.preventDefault();
-                  if(col.c4!==true){
-                  setcol({c1:false , c2:false , c3:false , c4:true , c5:false , c6:false , c7:false , c8:false });
+                  if(col[4]!==true){
+                    col[4]=true;
+                    var tt = [...col];
+                    for(var i=1;i<=8;i++){
+                      if(i!==4){
+                        tt[i]=false;
+                      }
+                    }
+                    setcol(tt);
                   }
                   let tpp = document.querySelector("#bt4");
                   tpp.style.border="1.3px solid #1A54B8";
@@ -322,7 +338,7 @@ const Addnote = () => {
                   note.style.backgroundColor="#625A58";
                   tpp1.style.backgroundColor="#F5E2DC";
                   setfinal({bg:"#F5E2DC" , bgcolor:"#625A58"});
-                  for(var i =1;i<=8;i++){
+                  for( i =1;i<=8;i++){
                    if(i!==4){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
@@ -330,7 +346,7 @@ const Addnote = () => {
                   }
                  }
                 }} style={{backgroundColor:"#F5E2DC"}} >
-                    {col.c4===true &&(
+                    {col[4]===true &&(
                       <DoneOutlinedIcon className='bttn'/>
                     )}
                 </div>
@@ -339,8 +355,15 @@ const Addnote = () => {
                 <div className="b1">
                 <div className="box" id='bt5' onClick={(e)=>{
                   e.preventDefault();
-                  if(col.c5!==true){
-                  setcol({c1:false, c2:false , c3:false , c4:false , c5:true , c6:false , c7:false , c8:false });
+                  if(col[5]!==true){
+                    col[5]=true;
+                    var tt = [...col];
+                    for(var i=1;i<=8;i++){
+                      if(i!==5){
+                        tt[i]=false;
+                      }
+                    }
+                    setcol(tt);
                   }
                   let tpp = document.querySelector("#bt5");
                   tpp.style.border="1.3px solid #1A54B8";
@@ -349,7 +372,7 @@ const Addnote = () => {
                   note.style.backgroundColor="#485855";
                   tpp1.style.backgroundColor="#B4DED4";
                   setfinal({bg:"#B4DED4" , bgcolor:"#485855"});
-                  for(var i =1;i<=8;i++){
+                  for( i =1;i<=8;i++){
                    if(i!==5){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
@@ -357,15 +380,22 @@ const Addnote = () => {
                   }
                  }
                 }} style={{backgroundColor:"#B4DED4"}} >
-                    {col.c5===true &&(
+                    {col[5]===true &&(
                       <DoneOutlinedIcon className='bttn'/>
                     )}
                 </div>
 
                 <div className="box" id='bt6' onClick={(e)=>{
                   e.preventDefault();
-                  if(col.c6!==true){
-                  setcol({c1:false, c2:false , c3:false , c4:false , c5:false , c6:true , c7:false , c8:false });
+                  if(col[6]!==true){
+                    col[6]=true;
+                    var tt = [...col];
+                    for(var i=1;i<=8;i++){
+                      if(i!==6){
+                        tt[i]=false;
+                      }
+                    }
+                    setcol(tt);
                   }
                   let tpp = document.querySelector("#bt6");
                   tpp.style.border="1.3px solid #1A54B8";
@@ -374,7 +404,7 @@ const Addnote = () => {
                   note.style.backgroundColor="#544C59";
                   tpp1.style.backgroundColor="#D3BFDB";
                   setfinal({bg:"#D3BFDB" , bgcolor:"#544C59"});
-                  for(var i =1;i<=8;i++){
+                  for( i =1;i<=8;i++){
                    if(i!==6){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
@@ -382,15 +412,22 @@ const Addnote = () => {
                   }
                  }
                 }} style={{backgroundColor:"#D3BFDB"}} >
-                    {col.c6===true &&(
+                    {col[6]===true &&(
                       <DoneOutlinedIcon className='bttn'/>
                     )}
                 </div>
 
                 <div className="box" id='bt7' onClick={(e)=>{
                   e.preventDefault();
-                  if(col.c7!==true){
-                  setcol({c1:false, c2:false , c3:false , c4:false , c5:false , c6:false , c7:true , c8:false });
+                  if(col[7]!==true){
+                    col[7]=true;
+                    var tt = [...col];
+                    for(var i=1;i<=8;i++){
+                      if(i!==7){
+                        tt[i]=false;
+                      }
+                    }
+                    setcol(tt);
                   }
                   let tpp = document.querySelector("#bt7");
                   tpp.style.border="1.3px solid #1A54B8";
@@ -399,7 +436,7 @@ const Addnote = () => {
                   note.style.backgroundColor="#67634A";
                   tpp1.style.backgroundColor="#FFF8B9";
                   setfinal({bg:"#FFF8B9" , bgcolor:"#67634A"});
-                  for(var i =1;i<=8;i++){
+                  for( i =1;i<=8;i++){
                    if(i!==7){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
@@ -407,15 +444,22 @@ const Addnote = () => {
                   }
                  }
                 }} style={{backgroundColor:"#FFF8B9"}} >
-                    {col.c7===true &&(
+                    {col[7]===true &&(
                       <DoneOutlinedIcon className='bttn'/>
                     )}
                 </div>
 
                 <div className="box" id='bt8' onClick={(e)=>{
                   e.preventDefault();
-                  if(col.c8!==true){
-                  setcol({c1:false, c2:false , c3:false , c4:false , c5:false , c6:false , c7:false , c8:true });
+                  if(col[8]!==true){
+                    col[8]=true;
+                    var tt = [...col];
+                    for(var i=1;i<8;i++){
+                      if(i!==8){
+                        tt[i]=false;
+                      }
+                    }
+                    setcol(tt);
                   }
                   let tpp = document.querySelector("#bt8");
                   tpp.style.border="1.3px solid #1A54B8";
@@ -424,7 +468,7 @@ const Addnote = () => {
                   note.style.backgroundColor="#475258";
                   tpp1.style.backgroundColor="#AFCCDC";
                   setfinal({bg:"#AFCCDC" , bgcolor:"#475258"});
-                  for(var i =1;i<=8;i++){
+                  for( i =1;i<=8;i++){
                    if(i!==8){
                      const tp =`${i}`;
                      const tppp = document.querySelector("#bt"+(tp));
@@ -432,7 +476,7 @@ const Addnote = () => {
                   }
                  }
                 }} style={{backgroundColor:"#AFCCDC"}} >
-                    {col.c8===true &&(
+                    {col[8]===true &&(
                       <DoneOutlinedIcon className='bttn'/>
                     )}
                 </div>

@@ -34,8 +34,7 @@ const initialstate={
     signuperror:"",
     logout:false,
     addnote:false,
-    addnoteerror:""
-    
+    addnoteerror:"" 
 }  
 
 const user =(state=initialstate , action) =>{
@@ -43,7 +42,7 @@ const user =(state=initialstate , action) =>{
         case LOGIN:
             const data = action.payload;
                 localStorage.setItem("user",JSON.stringify({data}));
-                break;
+                return state;
         case LOGOUT:
             return{
                 ...state , logout:action.payload

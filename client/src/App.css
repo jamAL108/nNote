@@ -1,1 +1,52 @@
 
+@font-face {
+    font-family: 'rajdhani';
+    src: url("fonts/Rajdhani-Regular.ttf");
+    font-display:block;
+}
+@font-face {
+    font-family: 'caveat';
+    src: url("fonts/Caveat-VariableFont_wght.ttf");
+    font-display:block;
+}
+@font-face {
+    font-family:'Raleway' ;
+    src: url("fonts/Raleway-VariableFont_wght.ttf");
+    font-display:block;
+}
+@font-face {
+    font-family:'Shadows' ;
+    src: url("fonts/ShadowsIntoLight-Regular.ttf");
+    font-display:block;
+
+}
+@font-face {
+    font-family: 'Zeyada';
+    src: url("fonts/Zeyada-Regular.ttf");
+    font-display:block;
+}
+@font-face {
+    font-family: 'GreatVibe';
+    src: url("fonts/GreatVibes-Regular.ttf");
+    font-display:block;
+}
+@font-face {
+    font-family: 'Geologica';
+    src: url("fonts/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf");
+    font-display:block;
+}
+@font-face {
+    font-family: 'Gruppo';
+    src: url("fonts/Gruppo-Regular.ttf");
+    font-display:block;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url("fonts/Poppins-Regular.ttf");
+    font-display:block;
+}
+@font-face {
+    font-family: 'DancingScript';
+    src: url("fonts/DancingScript-VariableFont_wght.ttf");
+    font-display:block;
+}
