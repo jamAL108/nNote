@@ -10,7 +10,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
 import { NEWNOTE } from '../redux/propsactions';
 import { useDispatch, useSelector } from 'react-redux';
-import { OUTER } from '../redux/propsactions';
+
 const Home = () => {
   useEffect(()=>{
     document.body.style.transition="all 0s";
