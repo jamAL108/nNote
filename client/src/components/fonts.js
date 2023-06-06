@@ -73,7 +73,7 @@ const Fonts = () => {
                     }
                   }
                 }} >
-                  <p style={{fontFamily:'Roboto'}}>{item.title} :</p>
+                  <p style={{fontFamily:'Roboto'}}>{item.title}</p>
                   <h1>Hello</h1>
                 </div>
               ))}
