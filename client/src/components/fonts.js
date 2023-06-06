@@ -11,7 +11,7 @@ const Fonts = () => {
   const [style1,setstyle1] =useState(temp.fontstyle);
     useEffect(()=>{
       if(store.props.fontdisplay===true){
-        for(var i=1;i<=8;i++){
+        for(var i=1;i<=10;i++){
           if(fons[i]===true){
             var tee = "#box"+(i);
              var tt = document.querySelector(tee);
