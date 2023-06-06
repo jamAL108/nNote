@@ -4,8 +4,8 @@ import{
  SIGNUP ,
  LOGINERROR ,
  SIGNUPERROR ,
-//  ADDNOTE ,
-//  ADDNOTEERROR ,
+ ADDNOTE ,
+ ADDNOTEERROR 
 //  DELETENOTE ,
 //  DELETENOTEERROR,
 //   UPDATENOTE,
@@ -84,4 +84,27 @@ export const signup = (formdata,navigate)=>async(dispatch)=>{
   }catch(err){
     console.log(err);
   }
+}
+
+export const addnote =(formdata)=>async(dispatch)=>{
+  try{
+    const api =`${URL}/user/addnote`;
+    const res = await fetch(api,{
+     method: "POST",
+     headers: {
+       "Content-Type":"application/json"
+      },
+     body: JSON.stringify(formdata)
+     });
+     console.log(formdata);
+    const msg = await res.json();
+    console.log(msg);
+    if(res.status === 200 ){
+         dispatch({type:ADDNOTE ,payload:msg.response });
+ }else if(res.status === 400 || res.status===404){
+   dispatch({type:ADDNOTEERROR ,payload:msg.error});
+ }
+ }catch(err){
+   console.log(err);
+ }
 }

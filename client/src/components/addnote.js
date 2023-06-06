@@ -20,6 +20,8 @@ import Colorpicker from './colorpicker';
 import FontDownloadOutlinedIcon from '@mui/icons-material/FontDownloadOutlined';
 import Fonts from './fonts.js';
 import { COLORSHOW, FONTDISPLAY, FONTHIDE ,NEWNOTE } from '../redux/propsactions';
+import { addnote } from '../redux/action/useraction';
+import { OUTER } from '../redux/propsactions';
 const Addnote = () => {
   const temp = JSON.parse(localStorage.getItem("temp"));
     const [pin,setpin] = useState(false);
@@ -133,6 +135,15 @@ const Addnote = () => {
         <div className="left">
          <ArrowBackOutlinedIcon className='bttn' onClick={(e)=>{
           dispatch({type:NEWNOTE , payload:false});
+          if(title.length!==0){
+            temp.pin=pin;
+            temp.archive=archive;
+            const user = JSON.parse(localStorage.getItem("user"));
+            user.note.push(temp);
+            dispatch({type:OUTER, payload:true});
+            console.log(store.props.outer);
+            dispatch(addnote(temp));
+          }
           navigate(-1);
          }} />
          </div>
@@ -206,17 +217,19 @@ const Addnote = () => {
 
                 <div className="menus">
               <div className="ul" onClick={(e)=>{
+                  temp.pin=pin;
+                  temp.archive=archive;
+                  const user = JSON.parse(localStorage.getItem("user"));
+                  console.log(temp);
+                  user.note.push(temp);
                   const data ={
-                    pin:pin,
-                    archive:archive,
-                    bg:temp.bg,
-                    bgcolor:temp.bg,
-                    title:title,
-                    note:note
+                    temp:temp,
+                    id:user.id
                   }
-                  console.log(data);
-                  // dispatch(addnote(data));
-
+                  dispatch({type:OUTER,payload:true});
+                  console.log(store.props.outer);
+                  dispatch(addnote(data));
+                  navigate(-1);
               }}>
                  <LibraryAddOutlinedIcon className='bttn' />
                  <h2>Save note</h2>

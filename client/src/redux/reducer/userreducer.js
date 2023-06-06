@@ -41,9 +41,11 @@ const user =(state=initialstate , action) =>{
     switch(action.type){
         case LOGIN:
             const data = action.payload;
-                localStorage.setItem("user",JSON.stringify({data}));
+                localStorage.setItem("user",JSON.stringify(data));
                 return state;
         case LOGOUT:
+            localStorage.removeItem("user");
+            localStorage.removeItem("temp");
             return{
                 ...state , logout:action.payload
             }

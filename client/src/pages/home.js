@@ -9,12 +9,14 @@ import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
 import { NEWNOTE } from '../redux/propsactions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { OUTER } from '../redux/propsactions';
 const Home = () => {
   useEffect(()=>{
     document.body.style.transition="all 0s";
   document.body.style.backgroundColor="#ffffff";
 },[]);
+ const store= useSelector((state)=>state);
   const reffi = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -67,6 +69,16 @@ if(pageName==="home"){
      setserh(false);
      setaction(true);
    };
+   useEffect(()=>{
+    console.log(store.props.outer);
+      // if(store.props.outer===true){
+          localStorage.removeItem("temp");
+          console.log("hello");
+        // dispatch({type:OUTER , payload:false});
+      // }
+         // eslint-disable-next-line react-hooks/exhaustive-deps
+   },[store.props.outer]);
+
   return (
     <>
             <div ref={temp6} className="great">
@@ -179,15 +191,20 @@ if(pageName==="home"){
       tpp.style.width="100vw";
       tpp.style.height="100vh";
       tpp.style.backgroundColor="white";
+      const font="Roboto";
       let data = {
         bg:"white",
         bgcolor:"#666666",
-        fontstyle:"Roboto",
+        fontstyle:font,
         fonts:fon,
         title:"",
         note:"",
-        color:col
+        color:col,
+        pin:false,
+        archive:false,
       }
+      console.log("heelooooooooo");
+      console.log(data.fontstyle);
       localStorage.setItem("temp",JSON.stringify(data));
       dispatch({type:NEWNOTE,payload:true});
       navigate("/addnote");

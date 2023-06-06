@@ -6,7 +6,8 @@ import {
     MAINFONT,
     FONTDISPLAY,
     COLORHIDE,
-    COLORSHOW
+    COLORSHOW,
+    OUTER
 } from '../propsactions.js';
 
 const initialstate={
@@ -18,7 +19,8 @@ const initialstate={
     mainfont:{},
     fontdisplay:false,
     colorshow:false,
-    colorhide:false
+    colorhide:false,
+    outer:false
 }  
 
 const props =(state=initialstate , action) =>{
@@ -51,10 +53,15 @@ const props =(state=initialstate , action) =>{
             return{
                 ...state , colorhide:action.payload
             }
+            case OUTER:
+                console.log(action.payload);
+                return{
+                    ...state , outer:action.payload
+                } 
         case COLORSHOW:
             return{
                 ...state , colorshow:action.payload
-            }                      
+            }                         
         default:
             return state;
     }
