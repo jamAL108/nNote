@@ -40,6 +40,7 @@ const Sidebar = () => {
   return (
     <>
      <div className="upper">
+      
         <h1>Nnote</h1>
      </div>
      <div className="other">

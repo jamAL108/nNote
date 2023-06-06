@@ -29,7 +29,7 @@ const Home = () => {
   const [serh , setserh] =useState(true);
   const [action , setaction] =useState(false);
   const col = [true,true,false,false,false,false,false,false,false];
-  const fon = [true,false,false,false,false,false,false,false,false,false,false];
+  const fon = [true,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
   let prevScrollPos = window.pageYOffset;
   var currentPageUrl = window.location.href;
 var pageName = currentPageUrl.substring(currentPageUrl.lastIndexOf("/") + 1);

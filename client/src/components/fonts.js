@@ -11,7 +11,7 @@ const Fonts = () => {
   const [style1,setstyle1] =useState(temp.fontstyle);
     useEffect(()=>{
       if(store.props.fontdisplay===true){
-        for(var i=1;i<=10;i++){
+        for(var i=1;i<=16;i++){
           if(fons[i]===true){
             var tee = "#box"+(i);
              var tt = document.querySelector(tee);
@@ -62,7 +62,7 @@ const Fonts = () => {
                   setstyle1(item.name);
                   dispatch({type:FONTSE , payload:item.name})
                   var t9 = [...fons];
-                  for(var i=1;i<=10;i++){
+                  for(var i=1;i<=16;i++){
                     if(i!==(idx+1)){
                       var tempi = "#box"+(i);
                       t9[i]=false;
@@ -73,6 +73,7 @@ const Fonts = () => {
                     }
                   }
                 }} >
+                  <p style={{fontFamily:'Roboto'}}>{item.title} :</p>
                   <h1>Hello</h1>
                 </div>
               ))}

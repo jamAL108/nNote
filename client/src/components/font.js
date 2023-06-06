@@ -1,33 +1,66 @@
 let font =[
+  {
+     name:'Roboto',
+     title:'default font'
+  },
+  {
+    name:'Vampire',
+    title:'Vampire'
+  },{
+    name:'Karma',
+     title:'Karma'
+  },
     {
-       name:'rajdhani'
+       name:'rajdhani',
+       title:'rajdhani'
     },
     {
-      name:'caveat'
+      name:'caveat',
+      title:'caveat'
     },
     {
-      name:'Raleway'
+      name:'Raleway',
+      title:'Raleway'
     },
     {
-      name:'Shadows'
+      name:'Shadows',
+      title:'shadows'
     },
     {
-      name:'Zeyada'
+      name:'Zeyada',
+      title:'Zeyada'
     },
     {
-      name:'GreatVibe'
+      name:'GreatVibe',
+      title:'GreatVibe'
     },
     {
-     name:'Geologica'
+     name:'Geologica',
+     title:'Geologica'
     },
     {
-      name:'Gruppo'
+      name:'Gruppo',
+      title:'Gruppo'
     },
     {
-      name:'Poppins'  
+      name:'Poppins',
+      title:'Poppins'  
     },
     {
-     name:'DancingScript'
+     name:'DancingScript',
+     title:'DancingScript'
+    },
+    {
+      name:'Kalam',
+      title:'Kalam'
+    },
+    {
+      name:'Sarpanch',
+      title:'Sarpanch'
+    },
+    {
+      name:'FugazOne',
+      title:'Fugazone'
     }
 ];
 

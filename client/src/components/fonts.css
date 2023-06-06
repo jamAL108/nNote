@@ -48,12 +48,34 @@
     height: 3rem;
     display: flex;
     border-radius: 15%;
+    flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-    text-align: center;
+    text-align: top;
 }
 .addnote .down .font-list .bottom .fontbox h1{
-    font-size: 1.5rem;
-    text-align: center;
-    margin-left: 1.3rem;
+    font-size: 1.3rem;
+    text-align: top;
+    /* margin-left: 1rem; */
+    margin: 0rem;
+}
+.addnote .down .font-list .bottom .fontbox p{
+    font-size: 0.77rem;
+    margin: 0rem;
+    text-decoration:solid;
+    text-transform: capitalize;
+}
+
+@media screen and (min-width : 505px) {
+    .addnote .down .font-list .bottom{
+        width: 95vw;
+        height: 27.5vh;
+        margin: auto;
+        overflow-y: scroll;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-gap: 0.3rem;
+    }
 }

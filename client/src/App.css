@@ -50,3 +50,30 @@
     src: url("fonts/DancingScript-VariableFont_wght.ttf");
     font-display:block;
 }
+
+@font-face {
+    font-family: 'Sarpanch';
+    src: url("fonts/Sarpanch-Bold.ttf");
+    font-display:block;
+}
+@font-face {
+    font-family: 'Vampire';
+    src: url("fonts/VampiroOne-Regular.ttf");
+    font-display:block;
+}
+@font-face {
+    font-family: 'Karma';
+    src: url("fonts/Karma-Bold.ttf");
+    font-display:block;
+}
+@font-face {
+    font-family: 'Kalam';
+    src: url("fonts/Karma-Bold.ttf");
+    font-display:block;
+}
+
+@font-face {
+    font-family: 'FugazOne';
+    src: url("fonts/FugazOne-Regular.ttf");
+    font-display:block;
+}
