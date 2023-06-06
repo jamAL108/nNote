@@ -56,7 +56,7 @@
 .addnote .down .font-list .bottom .fontbox h1{
     font-size: 1.3rem;
     text-align: top;
-    /* margin-left: 1rem; */
+    margin-top: 0.3rem;
     margin: 0rem;
 }
 .addnote .down .font-list .bottom .fontbox p{
@@ -64,6 +64,7 @@
     margin: 0rem;
     text-decoration:solid;
     text-transform: capitalize;
+    margin-top:0.2rem
 }
 
 @media screen and (min-width : 505px) {
