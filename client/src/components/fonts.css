@@ -45,7 +45,7 @@
 }
 .addnote .down .font-list .bottom .fontbox{
     /* width: 3rem; */
-    height: 3rem;
+    height: 3.5rem;
     display: flex;
     border-radius: 15%;
     flex-direction: column;
