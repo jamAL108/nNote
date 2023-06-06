@@ -4,7 +4,9 @@ import {
     FONT,
     NEWNOTE,
     MAINFONT,
-    FONTDISPLAY
+    FONTDISPLAY,
+    COLORHIDE,
+    COLORSHOW
 } from '../propsactions.js';
 
 const initialstate={
@@ -14,7 +16,9 @@ const initialstate={
     font:{},
     oldnote:false,
     mainfont:{},
-    fontdisplay:false
+    fontdisplay:false,
+    colorshow:false,
+    colorhide:false
 }  
 
 const props =(state=initialstate , action) =>{
@@ -42,8 +46,15 @@ const props =(state=initialstate , action) =>{
         case FONTDISPLAY:
             return{
                 ...state , fontdisplay:action.payload
-            }              
-
+            }
+        case COLORHIDE:
+            return{
+                ...state , colorhide:action.payload
+            }
+        case COLORSHOW:
+            return{
+                ...state , colorshow:action.payload
+            }                      
         default:
             return state;
     }

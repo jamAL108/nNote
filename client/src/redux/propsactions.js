@@ -5,3 +5,5 @@ export const OLDNOTE = "OLDNOTE";
 export const FONT = "FONT";
 export const MAINFONT = "MAINFONT";
 export const FONTDISPLAY = "FONTDISPLAY";
+export const COLORHIDE = "COLORHIDE";
+export const COLORSHOW = "COLORSHOW";
