@@ -133,8 +133,8 @@ body{
     width: 18vw;
     height: 8vh;
     border-radius: 25px;
-    box-shadow: -2px -3px 11px 0px rgba(0,0,0,0.59);
-    box-shadow: 2px 5px 11px 0px rgba(0,0,0,0.59);
+    box-shadow: -2px -3px 11px 0px rgba(0,0,0,0.30);
+    box-shadow: 2px 5px 11px 0px rgba(0,0,0,0.30);
 }
 
 .fixed .icons{
