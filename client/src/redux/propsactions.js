@@ -8,3 +8,5 @@ export const FONTDISPLAY = "FONTDISPLAY";
 export const COLORHIDE = "COLORHIDE";
 export const COLORSHOW = "COLORSHOW";
 export const OUTER = "OUTER";
+export const PINSHORT = "PINSHORT";
+export const GRID = "GRID";

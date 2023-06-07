@@ -14,7 +14,9 @@ export const Login = async(req,res)=>{
          }
         const passwordcorrect = await bcrypt.compare(password , data.password);
        if(passwordcorrect){
+        console.log(data.id);
         const note = await notes.find({user:data.id});
+        console.log(note);
         let array = [];
         if(notes.length!==0){
            array=note;
@@ -65,11 +67,11 @@ export const Addnote = async(req,res)=>{
   const errors={backenderror:String}
     try{
       const data = req.body;
-      console.log(data);
       if(!data){
         errors.emailError="No data";
         return  res.status(404).send({error:errors});
        }
+       console.log(data);
        const newnote = new notes({
         user:data.id,
         bg:data.temp.bg,
@@ -82,7 +84,6 @@ export const Addnote = async(req,res)=>{
         title:data.temp.title,
         note:data.temp.note
      });
-     console.log(newnote);
      await newnote.save();
        return res.status(200).send({message:"success"});
     }catch(err){

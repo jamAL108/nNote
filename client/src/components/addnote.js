@@ -139,7 +139,8 @@ const Addnote = () => {
             temp.pin=pin;
             temp.archive=archive;
             const user = JSON.parse(localStorage.getItem("user"));
-            user.note.push(temp);
+            user.info.note.push(temp);
+            localStorage.setItem("user",JSON.stringify(user));
             dispatch({type:OUTER, payload:true});
             console.log(store.props.outer);
             dispatch(addnote(temp));
@@ -221,11 +222,12 @@ const Addnote = () => {
                   temp.archive=archive;
                   const user = JSON.parse(localStorage.getItem("user"));
                   console.log(temp);
-                  user.note.push(temp);
+                  user.info.note.push(temp);
                   const data ={
                     temp:temp,
-                    id:user.id
+                    id:user.info.id
                   }
+                  localStorage.setItem("user",JSON.stringify(user));
                   dispatch({type:OUTER,payload:true});
                   console.log(store.props.outer);
                   dispatch(addnote(data));

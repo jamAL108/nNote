@@ -7,7 +7,9 @@ import {
     FONTDISPLAY,
     COLORHIDE,
     COLORSHOW,
-    OUTER
+    OUTER,
+    PINSHORT,
+    GRID
 } from '../propsactions.js';
 
 const initialstate={
@@ -20,7 +22,9 @@ const initialstate={
     fontdisplay:false,
     colorshow:false,
     colorhide:false,
-    outer:false
+    outer:false,
+    pinshort:false,
+    grid:false
 }  
 
 const props =(state=initialstate , action) =>{
@@ -61,7 +65,15 @@ const props =(state=initialstate , action) =>{
         case COLORSHOW:
             return{
                 ...state , colorshow:action.payload
-            }                         
+            }
+        case PINSHORT:
+            return{
+                ...state , pinshort:action.payload
+            }
+        case GRID: 
+             return{
+                ...state , grid:action.payload
+             }                                
         default:
             return state;
     }

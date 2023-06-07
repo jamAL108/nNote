@@ -44,6 +44,7 @@ export const login = (formdata,navigate)=>async(dispatch)=>{
        console.log(msg);
        if(res.status === 200 ){
             navigate("/home");
+            console.log(typeof(msg.response));
             dispatch({type:LOGIN ,payload:msg.response })
     }else if(res.status === 400 || res.status===404){
       console.log("mlfbnelrbn");

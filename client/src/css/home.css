@@ -37,7 +37,8 @@ nav{
 
 .main{
     width: 100vw;
-    margin-top: 20%;
+    height: 93%;
+    margin-top: 10%;
 }
 
 nav .left , nav .right{

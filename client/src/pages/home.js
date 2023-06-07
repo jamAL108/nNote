@@ -8,9 +8,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
-import { NEWNOTE } from '../redux/propsactions';
+import { NEWNOTE , GRID } from '../redux/propsactions';
 import { useDispatch, useSelector } from 'react-redux';
-import { OUTER } from '../redux/propsactions';
+import Template from '../components/template';
 const Home = () => {
   useEffect(()=>{
     document.body.style.transition="all 0s";
@@ -26,7 +26,7 @@ const Home = () => {
   const temp7 = useRef(null);
   const temp8 = useRef(null);
   const [sidebar , setsidebar] = useState(false);
-  const [grid,setgrid]=useState(false);
+  const [grid,setgrid]=useState(true);
   const [cross , setcross] =useState(false);
   const [serh , setserh] =useState(true);
   const [action , setaction] =useState(false);
@@ -35,15 +35,16 @@ const Home = () => {
   let prevScrollPos = window.pageYOffset;
   var currentPageUrl = window.location.href;
 var pageName = currentPageUrl.substring(currentPageUrl.lastIndexOf("/") + 1);
-console.log(pageName);
+//console.log(pageName);
+
 if(pageName==="home"){
-  console.log(pageName);
-  
-  window.addEventListener('scroll', function() {
+  //console.log(pageName);
+   window.addEventListener('scroll', function() {
     let currentScrollPos = window.pageYOffset;
     let nav = document.querySelector(".nav");
-    console.log(prevScrollPos);
-    console.log("hey");
+    //console.log(prevScrollPos);
+    //console.log("hey");
+    //console.log(nav);
     if (prevScrollPos > currentScrollPos) {
       nav.style.position="sticky";
       nav.style.top="2.5%";
@@ -163,6 +164,7 @@ if(pageName==="home"){
        </div>
        <div className="grid" onClick={(e)=>{
             setgrid(!grid);
+            dispatch({type:GRID , payload:grid});
            }} >
           {grid ? <GridViewIcon className='bttn'/> : <SplitscreenIcon className='bttn'/>}
        </div>
@@ -174,10 +176,7 @@ if(pageName==="home"){
              </div>
 
    <div className="main">
-      <div className="pinned">
-        <h1>pinned.</h1>
-
-      </div>
+      <Template/>
    </div>
 
 
