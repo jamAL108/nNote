@@ -24,9 +24,9 @@
 
 .pinned .note{
     height: auto;
-    min-height: 3rem;
+    min-height: 5rem;
     margin-bottom: 0.4rem;
-    border: 1px solid #808080;
+    border: 0.5px solid #808080;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -36,7 +36,8 @@
 .pinned .note h3{
     word-wrap: break-word;
     margin-top: 0.6rem;
-    margin-left: 0.6rem;
+    margin-left: 0.9rem;
+	margin-right:0.9rem;
     font-weight: 500;
     font-size: 1.12rem;
     margin-bottom: 0rem;
@@ -44,7 +45,8 @@
 .pinned .note p{
     margin-top: 0.6rem;
     margin-bottom: 0.6rem;
-    margin-left: 0.6rem;
+    margin-left: 0.9rem;
+	margin-right:0.9rem;
     font-weight: 200;
     font-size: 0.8rem;
 }
