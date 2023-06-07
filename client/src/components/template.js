@@ -27,7 +27,7 @@ const Pinned = () => {
       if(array.length!==0){
        for(var i=0;i<array.length;i++){
          let short="";
-         if(array[i].note.length>150){
+         if(array[i].note.length>300){
              short=array[i].note.slice(0, 151);
              short=short+"...";
          }else{
@@ -42,7 +42,7 @@ const Pinned = () => {
       if(array1.length!==0){
        for( i=0;i<array1.length;i++){
          let short="";
-         if(array1[i].note.length>150){
+         if(array1[i].note.length>300){
              short=array1[i].note.slice(0, 151);
              short=short+"...";
          }else{
