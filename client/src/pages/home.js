@@ -141,7 +141,7 @@ if(pageName==="home"){
             </div>
         <h2 className='title' >Nnote</h2>
     </div>
-    
+
     <div className="right">
        {action===true &&(
           <input type="text" placeholder='Search Your Note' />
