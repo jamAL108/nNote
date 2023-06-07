@@ -8,6 +8,12 @@ const Fonts = () => {
   const store = useSelector((state)=>state);
   const temp = JSON.parse(localStorage.getItem("temp"));
   const [fons,setfons] = useState(temp.fonts);
+  console.log(temp.fontstyle);
+  useEffect(()=>{
+    //  if(store.props.newnote===true){
+
+    //  }
+  },[store.props.newnote])
   const [style1,setstyle1] =useState(temp.fontstyle);
     useEffect(()=>{
       if(store.props.fontdisplay===true){
@@ -28,6 +34,7 @@ const Fonts = () => {
                  // eslint-disable-next-line react-hooks/exhaustive-deps
     },[fons])
     useEffect(()=>{
+      console.log(style1);
       if(style1!==temp.fontstyle){
       temp.fontstyle=style1;
       localStorage.setItem("temp",JSON.stringify(temp));

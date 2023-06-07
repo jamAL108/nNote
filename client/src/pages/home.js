@@ -32,6 +32,25 @@ const Home = () => {
   const [action , setaction] =useState(false);
   const col = [true,true,false,false,false,false,false,false,false];
   const fon = [true,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
+  let allfont =[
+    'hi',
+  'Roboto',
+'Vampire',
+'Karma',
+    'rajdhani',
+  'caveat',
+'Raleway',
+'Shadows',
+      'Zeyada',
+      'GreatVibe',
+      'Geologica',
+      'Gruppo',
+        'Poppins',
+      'DancingScript',
+      'Kalam',
+      'Sarpanch',
+'FugazOne' ];
+
   let prevScrollPos = window.pageYOffset;
   var currentPageUrl = window.location.href;
 var pageName = currentPageUrl.substring(currentPageUrl.lastIndexOf("/") + 1);
@@ -190,9 +209,15 @@ if(pageName==="home"){
       tpp.style.width="100vw";
       tpp.style.height="100vh";
       tpp.style.backgroundColor="white";
-      const font="Roboto";
+      let font="";
+      for(var i=1;i<allfont.length;i++){
+          if(fon[i]===true){
+              font=allfont[i];
+              break;
+          }
+      }
       let data = {
-        bg:"white",
+        bg:"#ffffff",
         bgcolor:"#666666",
         fontstyle:font,
         fonts:fon,

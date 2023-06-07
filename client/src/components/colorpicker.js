@@ -32,6 +32,8 @@ const Colorpicker = () => {
 // eslint-disable-next-line react-hooks/exhaustive-deps
   },[final]);
 
+
+  
   useEffect(()=>{
     if(store.props.colorshow===true){
         console.log("heyy");

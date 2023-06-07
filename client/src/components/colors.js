@@ -8,8 +8,8 @@ let Color=[
         bgcolor:"#644743"
     },
     {
-        bg:"#F5E2DC",
-        bgcolor:"#625A58"
+        bg:"#E2f6d3",
+        bgcolor:"#5A6253"
     },
     {
         bg:"#B4DED4",

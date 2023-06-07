@@ -15,7 +15,7 @@ import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
 import './addnote.css';
 import { useSelector , useDispatch } from 'react-redux';
 import { ADDNOTE } from '../redux/actiontypes';
-import { COLORHIDE } from '../redux/propsactions';
+import { COLORHIDE, FONTSE } from '../redux/propsactions';
 import Colorpicker from './colorpicker';
 import FontDownloadOutlinedIcon from '@mui/icons-material/FontDownloadOutlined';
 import Fonts from './fonts.js';
@@ -37,6 +37,7 @@ const Addnote = () => {
     const [menu , setmenu] = useState(false);
     const [font, setfont] = useState(false);
     const [ff,setff] = useState(temp.fontstyle);
+    console.log(ff);
     useEffect(()=>{
         if(store.user.addnote===true){
           dispatch({type:ADDNOTE , payload:false});
@@ -135,6 +136,7 @@ const Addnote = () => {
         <div className="left">
          <ArrowBackOutlinedIcon className='bttn' onClick={(e)=>{
           dispatch({type:NEWNOTE , payload:false});
+          dispatch({type:FONTSE , payload:"Roboto"});
           if(title.length!==0){
             temp.pin=pin;
             temp.archive=archive;
@@ -218,6 +220,7 @@ const Addnote = () => {
 
                 <div className="menus">
               <div className="ul" onClick={(e)=>{
+                dispatch({type:FONTSE , payload:"Roboto"});
                   temp.pin=pin;
                   temp.archive=archive;
                   const user = JSON.parse(localStorage.getItem("user"));

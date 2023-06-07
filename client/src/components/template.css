@@ -41,12 +41,13 @@
     font-weight: 500;
     font-size: 1.12rem;
     margin-bottom: 0rem;
+    text-transform:capitalize;
 }
 .pinned .note p{
     margin-top: 0.6rem;
     margin-bottom: 0.6rem;
     margin-left: 0.9rem;
 	margin-right:0.9rem;
-    font-weight: 200;
-    font-size: 0.8rem;
+    font-weight: 180;
+    font-size: 0.9rem;
 }

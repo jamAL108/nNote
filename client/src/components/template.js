@@ -125,7 +125,10 @@ const Pinned = () => {
       {show===true && pinned.length!==0 &&(
           <div className="item1" >
              {pinned.map((item,idx)=>(
-              <div className="note" id={`note${idx+1}`} key={idx} style={{backgroundColor:item.bg , fontFamily:item.fontstyle}}>
+              <div className="note" onClick={(e)=>{
+                e.preventDefault();
+                
+              }} id={`note${idx+1}`} key={idx} style={{backgroundColor:item.bg , fontFamily:item.fontstyle}}>
                   <h3>{item.title}</h3>
                   <p>{item.short}</p>
                   </div>
