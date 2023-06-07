@@ -26,8 +26,8 @@
     height: auto;
     min-height: 5rem;
     margin-bottom: 0.4rem;
-    border: 0.5px solid #808080;
-    border-radius: 20px;
+    border: 0.3px solid #808080;
+    border-radius: 14px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
