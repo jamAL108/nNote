@@ -14,9 +14,7 @@ export const Login = async(req,res)=>{
          }
         const passwordcorrect = await bcrypt.compare(password , data.password);
        if(passwordcorrect){
-        console.log(data.id);
         const note = await notes.find({user:data.id});
-        console.log(note);
         let array = [];
         if(notes.length!==0){
            array=note;
@@ -24,8 +22,10 @@ export const Login = async(req,res)=>{
         const user={
           note:array,
           id:data._id,
-          username:data.username
+          username:data.username,
+          totalnote:array.length
         }
+        console.log(user);
         return res.status(200).send({message:"login successfull",response:user});
         }else if(!passwordcorrect){
           errors.passwordError="invalid credentials";
@@ -85,6 +85,35 @@ export const Addnote = async(req,res)=>{
         note:data.temp.note
      });
      await newnote.save();
+       return res.status(200).send({message:"success"});
+    }catch(err){
+      errors.backenderror=err;
+      console.log(err);
+      return res.status(404).send({error:errors})
+    }
+};
+
+export const Updatenote = async(req,res)=>{
+  const errors={backenderror:String}
+    try{
+      const data = req.body;
+      if(!data){
+        errors.emailError="No data";
+        return  res.status(404).send({error:errors});
+       }
+        const notey = await notes.findOne({id:data.temp.id , user:data.id});
+        notey.bg=data.temp.bg;
+        notey.bgcolor=data.temp.bgcolor;
+        notey.title=data.temp.title;
+        notey.note=data.temp.note;
+        notey.fonts=data.temp.fonts;
+        notey.color=data.temp.color;
+        notey.pin=data.temp.pin;
+        notey.archive=data.temp.archive;
+        notey.fontstyle=data.temp.fontstyle;
+        const upp = await notey.save();
+        console.log(upp);
+    //  await newnote.save();
        return res.status(200).send({message:"success"});
     }catch(err){
       errors.backenderror=err;

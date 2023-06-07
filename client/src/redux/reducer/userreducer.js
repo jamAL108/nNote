@@ -41,6 +41,11 @@ const user =(state=initialstate , action) =>{
     switch(action.type){
         case LOGIN:
             const info = action.payload;
+            let array = info.note;
+            for(var i=0;i<array.length;i++){
+                array[i].idx=i;
+             }
+             info.note = array;
             console.log(typeof(info));
                 localStorage.setItem("user",JSON.stringify({info}));
                 return state;

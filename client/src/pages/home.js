@@ -64,6 +64,8 @@ if(pageName==="home"){
     //console.log(prevScrollPos);
     //console.log("hey");
     //console.log(nav);
+    if(nav!==null){
+      console.log("heyyy");
     if (prevScrollPos > currentScrollPos) {
       nav.style.position="sticky";
       nav.style.top="2.5%";
@@ -73,6 +75,7 @@ if(pageName==="home"){
       nav.style.zIndex="0";
     }
     prevScrollPos = currentScrollPos;
+  }
   });
 }else{
   console.log("hey");

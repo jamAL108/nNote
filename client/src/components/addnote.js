@@ -142,6 +142,7 @@ const Addnote = () => {
             temp.archive=archive;
             const user = JSON.parse(localStorage.getItem("user"));
             user.info.note.push(temp);
+            user.info.totalnote++;
             localStorage.setItem("user",JSON.stringify(user));
             dispatch({type:OUTER, payload:true});
             console.log(store.props.outer);
@@ -164,14 +165,14 @@ const Addnote = () => {
          </div>
       </header>
       <div className="content">
-       <input className='input1' value={title} style={{fontFamily:ff}} type="text" placeholder='Title' onChange={(e)=>{
+       <input className='input1' maxLength={15} value={title} style={{fontFamily:ff}} type="text" placeholder='Title' onChange={(e)=>{
         settitle(e.target.value);
        }} />
        <textarea placeholder='Note' value={note} style={{fontFamily:ff}} type="text" className='input2' cols="30" rows="30" onChange={(e)=>{
         setnote(e.target.value);
        }}></textarea>
       </div>
-      <div className="down">
+      <div className="down" style={{backgroundColor:temp.bg}} >
         <div className="left">
          <div className="color">
              <ColorLensOutlinedIcon className='bttn' onClick={(e)=>{
@@ -226,6 +227,7 @@ const Addnote = () => {
                   const user = JSON.parse(localStorage.getItem("user"));
                   console.log(temp);
                   user.info.note.push(temp);
+                  user.info.totalnote++;
                   const data ={
                     temp:temp,
                     id:user.info.id
@@ -240,7 +242,10 @@ const Addnote = () => {
                  <h2>Save note</h2>
               </div>
               <div className="ul">
-              <DeleteOutlineRoundedIcon className='bttn' />
+              <DeleteOutlineRoundedIcon className='bttn' onClick={(e)=>{
+                 dispatch({type:OUTER,payload:true});
+                 navigate(-1);
+              }} />
                  <h2>Delete</h2>
               </div>
               <div className="ul">

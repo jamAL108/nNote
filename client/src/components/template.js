@@ -1,7 +1,11 @@
 import React,{useState , useEffect} from 'react'
-import {  useSelector } from 'react-redux';
+import {  useDispatch, useSelector } from 'react-redux';
 import './template.css';
+import { FONTSE, OLDNOTE } from '../redux/propsactions';
+import { useNavigate } from 'react-router-dom';
 const Pinned = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const store = useSelector((state)=>state);
   const user = JSON.parse(localStorage.getItem("user"));
   const [pinned,setpinned] = useState([]);
@@ -127,7 +131,10 @@ const Pinned = () => {
              {pinned.map((item,idx)=>(
               <div className="note" onClick={(e)=>{
                 e.preventDefault();
-                
+                dispatch({type:FONTSE ,payload:item.fontstyle});
+                localStorage.setItem("temp",JSON.stringify(item));
+                dispatch({type:OLDNOTE , payload:true});
+                navigate('/viewnote');
               }} id={`note${idx+1}`} key={idx} style={{backgroundColor:item.bg , fontFamily:item.fontstyle}}>
                   <h3>{item.title}</h3>
                   <p>{item.short}</p>
@@ -147,7 +154,13 @@ const Pinned = () => {
 {showother===true && other.length!==0 &&(
     <div className="item2" >
        {other.map((item,idx)=>(
-        <div className="note" id={`note${idx+1}`} key={idx} style={{backgroundColor:item.bg , fontFamily:item.fontstyle}}>
+        <div className="note" id={`note${idx+1}`} key={idx} style={{backgroundColor:item.bg , fontFamily:item.fontstyle}} onClick={(e)=>{
+          e.preventDefault();
+          dispatch({type:FONTSE ,payload:item.fontstyle});
+          localStorage.setItem("temp",JSON.stringify(item));
+          dispatch({type:OLDNOTE , payload:true});
+          navigate('/viewnote');
+        }} >
             <h3>{item.title}</h3>
             <p>{item.short}</p>
             </div>

@@ -10,3 +10,5 @@ export const COLORSHOW = "COLORSHOW";
 export const OUTER = "OUTER";
 export const PINSHORT = "PINSHORT";
 export const GRID = "GRID";
+export const UPDATENOTE = "UPDATENOTE";
+export const DELETENOTE = "DELETENOTE";

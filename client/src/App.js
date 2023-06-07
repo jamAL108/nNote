@@ -10,6 +10,7 @@ import Archive from './pages/archive';
 import Deleted from './pages/deleted';
 import Settings from './pages/settings';
 import Addnote from './components/addnote';
+import Viewnote from './components/viewnote';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path='/deleted' element={<Deleted/>}/>
       <Route path='/settings' element={<Settings/>}/>
       <Route path='/addnote' element={<Addnote/>}/>
+      <Route path="/viewnote" element={<Viewnote/>}/>
       
      </Routes>
   );

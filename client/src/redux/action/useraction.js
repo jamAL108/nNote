@@ -5,11 +5,11 @@ import{
  LOGINERROR ,
  SIGNUPERROR ,
  ADDNOTE ,
- ADDNOTEERROR 
-//  DELETENOTE ,
-//  DELETENOTEERROR,
-//   UPDATENOTE,
-//  UPDATENOTEERROR,
+ ADDNOTEERROR ,
+ DELETENOTE ,
+ DELETENOTEERROR,
+  UPDATENOTE,
+ UPDATENOTEERROR
 //  GETNOTES ,
 //  GETNOTESERROR ,
 //  CREATELABELS ,
@@ -44,7 +44,7 @@ export const login = (formdata,navigate)=>async(dispatch)=>{
        console.log(msg);
        if(res.status === 200 ){
             navigate("/home");
-            console.log(typeof(msg.response));
+            console.log(msg.response);
             dispatch({type:LOGIN ,payload:msg.response })
     }else if(res.status === 400 || res.status===404){
       console.log("mlfbnelrbn");
@@ -104,6 +104,52 @@ export const addnote =(formdata)=>async(dispatch)=>{
          dispatch({type:ADDNOTE ,payload:msg.response });
  }else if(res.status === 400 || res.status===404){
    dispatch({type:ADDNOTEERROR ,payload:msg.error});
+ }
+ }catch(err){
+   console.log(err);
+ }
+}
+
+export const updatenote =(formdata)=>async(dispatch)=>{
+  try{
+    const api =`${URL}/user/updatenote`;
+    const res = await fetch(api,{
+     method: "POST",
+     headers: {
+       "Content-Type":"application/json"
+      },
+     body: JSON.stringify(formdata)
+     });
+     console.log(formdata);
+    const msg = await res.json();
+    console.log(msg);
+    if(res.status === 200 ){
+         dispatch({type:UPDATENOTE ,payload:msg.response });
+ }else if(res.status === 400 || res.status===404){
+   dispatch({type:UPDATENOTEERROR ,payload:msg.error});
+ }
+ }catch(err){
+   console.log(err);
+ }
+}
+
+export const deletenote =(formdata)=>async(dispatch)=>{
+  try{
+    const api =`${URL}/user/deletenote`;
+    const res = await fetch(api,{
+     method: "POST",
+     headers: {
+       "Content-Type":"application/json"
+      },
+     body: JSON.stringify(formdata)
+     });
+     console.log(formdata);
+    const msg = await res.json();
+    console.log(msg);
+    if(res.status === 200 ){
+         dispatch({type:DELETENOTE ,payload:msg.response });
+ }else if(res.status === 400 || res.status===404){
+   dispatch({type:DELETENOTEERROR ,payload:msg.error});
  }
  }catch(err){
    console.log(err);
