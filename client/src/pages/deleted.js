@@ -7,6 +7,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import '../css/deleted.css';
+import { CLOSED } from '../redux/propsactions';
+import { useDispatch, useSelector } from 'react-redux';
 const Deleted = () => {
   useEffect(()=>{
     document.body.style.transition="all 0s";
@@ -15,7 +17,8 @@ const Deleted = () => {
 },[]);
   const reffi = useRef(null);
   const refu = useRef(null);
-  const temp6 = useRef(null);
+  const store = useSelector((state)=>state);
+  const dispatch = useDispatch();
   const temp5 = useRef(null);
   const [sidebar , setsidebar] = useState(false);
   const [grid,setgrid]=useState(false);
@@ -57,33 +60,30 @@ const Deleted = () => {
      setserh(false);
      setaction(true);
    };
+
+   useEffect(()=>{
+    if(store.props.closed===true){
+      setsidebar(false);
+      const temp =reffi.current;
+      console.log(temp);
+      if(temp.classList.contains('show')){
+        console.log("hey");
+        temp.classList.remove('show');
+      }
+      temp.classList.add('hide');
+      const reff = refu.current;
+      reff.classList.remove('dark');
+      const refff = temp5.current;
+      refff.classList.remove('dark');
+      document.body.style.backgroundColor = "#ffffff";
+      document.body.style.overflow="scroll";
+      dispatch({type:CLOSED , payload:false});
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+   },[store.props.closed])
+
   return (
     <>
-            <div ref={temp6} className="great">
-           <CloseIcon id='gret' onClick={(e)=>{
-            e.preventDefault();
-              setsidebar(false);
-              const temp =reffi.current;
-              console.log(temp);
-              if(temp.classList.contains('show')){
-                console.log("hey");
-                temp.classList.remove('show');
-              }
-              temp.classList.add('hide');
-              const reff = refu.current;
-              reff.classList.remove('dark');
-              const refff = temp5.current;
-              refff.classList.remove('dark');
-              document.body.style.backgroundColor = "#ffffff";
-              document.body.style.overflow="scroll";
-              let tp = temp6.current;
-              tp.style.zIndex="0";
-              var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-              scrollTop+=8;
-              tp.style.color="transparent";
-              tp.style.top=`${scrollTop}px`;
-          }}/>
-          </div>
     <div ref={refu} className="home" id='deleted'>
       <nav ref={temp5} className="nav">
             <div className="left">
@@ -105,11 +105,6 @@ const Deleted = () => {
               document.body.style.overflow="hidden";
               var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
               temp1.style.top=`${scrollTop}px`;
-              let tp = temp6.current;
-              tp.style.zIndex="7";
-              scrollTop+=8;
-              tp.style.color="#283848";
-              tp.style.top=`${scrollTop}px`;
           }}/>
             </div>
         <h2 className='title' >Deleted</h2>

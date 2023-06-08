@@ -8,8 +8,10 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { useNavigate } from 'react-router-dom';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch, useSelector } from 'react-redux';
-import { LOGOUT } from '../redux/actiontypes';
+import { LOGOUT  } from '../redux/actiontypes';
+import { ARCHIVESHADES, CLOSED, SHADES } from '../redux/propsactions';
 const Sidebar = () => {
   const sideyy = JSON.parse(localStorage.getItem("sidebar"));
   const data = sideyy.data.index;
@@ -40,7 +42,12 @@ const Sidebar = () => {
   return (
     <>
      <div className="upper">
-      
+        <CloseIcon className='btttn' onClick={(e)=>{
+          e.preventDefault();
+          dispatch({type:CLOSED , payload:true});
+          dispatch({type:SHADES , payload:false});
+          dispatch({type:ARCHIVESHADES,payload:false});
+        }} />
         <h1>Nnote</h1>
      </div>
      <div className="other">

@@ -1,7 +1,7 @@
 import React,{useState , useEffect} from 'react'
 import {  useDispatch, useSelector } from 'react-redux';
 import './template.css';
-import { FONTSE, OLDNOTE } from '../redux/propsactions';
+import { FONTSE, OLDNOTE, SHADES } from '../redux/propsactions';
 import { useNavigate } from 'react-router-dom';
 const Pinned = () => {
   const dispatch = useDispatch();
@@ -13,9 +13,13 @@ const Pinned = () => {
   const [other,setother] = useState([]);
   const [showother , setshowother] = useState(false);
   useEffect(()=>{
+    dispatch({type:SHADES , payload:false });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+  useEffect(()=>{
      if(user.info.note.length!==0){
       function pin(n) {
-        if (n.pin ===true)
+        if (n.pin ===true && n.archive===false)
           return true;
         else
           return false;
@@ -117,6 +121,37 @@ const Pinned = () => {
       }
        // eslint-disable-next-line react-hooks/exhaustive-deps
   },[store.props.grid]);
+
+  useEffect(()=>{
+    if(store.props.shades===true && show===true && pinned.length!==0){
+          const s1 = document.querySelector(".item1");
+          for(var i=0;i<s1.childNodes.length;i++){
+            s1.childNodes[i].style.backgroundColor=pinned[i].bgcolor;
+          }
+      }
+      if(store.props.shades===true && showother===true && other.length!==0){
+        const s2 = document.querySelector(".item2");
+        for( i=0;i<s2.childNodes.length;i++){
+        s2.childNodes[i].style.backgroundColor=other[i].bgcolor;
+     }
+    }
+
+      if(store.props.shades===false && show===true && other.length!==0){
+        const s1 = document.querySelector(".item1");
+        for( i=0;i<s1.childNodes.length;i++){
+           s1.childNodes[i].style.backgroundColor=pinned[i].bg;
+        }
+      } 
+      if(store.props.shades===false && show===true && other.length!==0){
+      const s2 = document.querySelector(".item2");
+      for( i=0;i<s2.childNodes.length;i++){
+        s2.childNodes[i].style.backgroundColor=other[i].bg;
+     }
+    }
+
+
+             // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[store.props.shades])
 
   return (
     <>

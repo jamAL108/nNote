@@ -9,7 +9,11 @@ import {
     COLORSHOW,
     OUTER,
     PINSHORT,
-    GRID
+    GRID , 
+    CLOSED,
+    SHADES,
+    ARCHIVESHADES,
+    ARCHIVEGRID
 } from '../propsactions.js';
 
 const initialstate={
@@ -24,7 +28,11 @@ const initialstate={
     colorhide:false,
     outer:false,
     pinshort:false,
-    grid:false
+    grid:false,
+    closed:false,
+    shades:false,
+    archiveshades:false,
+    archivegrid:false
 }  
 
 const props =(state=initialstate , action) =>{
@@ -71,9 +79,25 @@ const props =(state=initialstate , action) =>{
                 ...state , pinshort:action.payload
             }
         case GRID: 
-             return{
+            return{
                 ...state , grid:action.payload
-             }                                
+            } 
+        case CLOSED:
+            return{
+                ...state , closed:action.payload
+            }
+        case SHADES:    
+            return{
+                ...state , shades:action.payload
+            }
+        case ARCHIVESHADES:
+            return{
+                   ...state , archiveshades:action.payload
+            }
+        case ARCHIVEGRID:    
+            return{
+                ...state , archivegrid:action.payload
+            }                                               
         default:
             return state;
     }

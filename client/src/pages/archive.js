@@ -6,7 +6,10 @@ import SplitscreenIcon from '@mui/icons-material/Splitscreen';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import Archives from '../components/archive.js';
 import '../css/archive.css';
+import { CLOSED , ARCHIVESHADES , ARCHIVEGRID} from '../redux/propsactions';
+import { useDispatch, useSelector } from 'react-redux';
 const Archive=() =>{
     useEffect(()=>{
         document.body.style.transition="all 0s";
@@ -15,10 +18,11 @@ const Archive=() =>{
     },[]);
 const reffi = useRef(null);
 const refu = useRef(null);
-const temp6 = useRef(null);
+const dispatch= useDispatch();
 const temp5 = useRef(null);
+const store = useSelector((state)=>state);
 const [sidebar , setsidebar] = useState(false);
-const [grid,setgrid]=useState(false);
+const [grid,setgrid]=useState(true);
 const [cross , setcross] =useState(false);
 const [serh , setserh] =useState(true);
 const [action , setaction] =useState(false);
@@ -57,34 +61,30 @@ window.addEventListener('scroll', function() {
    setaction(true);
  };
  console.log(sidebar);
+
+ useEffect(()=>{
+  if(store.props.closed===true){
+    setsidebar(false);
+    const temp =reffi.current;
+    console.log(temp);
+    if(temp.classList.contains('show')){
+      console.log("hey");
+      temp.classList.remove('show');
+    }
+    temp.classList.add('hide');
+    const reff = refu.current;
+    reff.classList.remove('dark');
+    const refff = temp5.current;
+    refff.classList.remove('dark');
+    document.body.style.backgroundColor = "#ffffff";
+    document.body.style.overflow="scroll";
+    dispatch({type:CLOSED , payload:false});
+  }
+// eslint-disable-next-line react-hooks/exhaustive-deps
+ },[store.props.closed])
+
 return (
-  <>
-          <div ref={temp6} className="great">
-         <CloseIcon id='gret' onClick={(e)=>{
-          e.preventDefault();
-            setsidebar(false);
-            const temp =reffi.current;
-            console.log(temp);
-            if(temp.classList.contains('show')){
-              console.log("hey");
-              temp.classList.remove('show');
-            }
-            temp.classList.add('hide');
-            const reff = refu.current;
-            reff.classList.remove('dark');
-            const refff = temp5.current;
-            refff.classList.remove('dark');
-            document.body.style.backgroundColor = "#ffffff";
-            document.body.style.overflow="scroll";
-            let tp = temp6.current;
-            tp.style.zIndex="0";
-            var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-            scrollTop+=8;
-            tp.style.color="transparent";
-            tp.style.top=`${scrollTop}px`;
-        }}/>
-        </div>
-           
+  <>         
 <div ref={refu} className="home" id='archive'>
     <nav ref={temp5} className="nav">
           <div className="left">
@@ -97,6 +97,7 @@ return (
               console.log("hey");
               temp1.classList.remove('hide');
             }
+            dispatch({type:ARCHIVESHADES , payload:true});
             temp1.classList.add('show');
             const reff = refu.current;
             reff.classList.add('dark');
@@ -106,11 +107,6 @@ return (
             document.body.style.overflow="hidden";
             var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
             temp1.style.top=`${scrollTop}px`;
-            let tp = temp6.current;
-            tp.style.zIndex="7";
-            scrollTop+=8;
-            tp.style.color="#283848";
-            tp.style.top=`${scrollTop}px`;
         }}/>
           </div>
       <h2 className='title' >Archive</h2>
@@ -138,6 +134,7 @@ return (
      </div>
      <div className="grid" onClick={(e)=>{
           setgrid(!grid);
+          dispatch({type:ARCHIVEGRID , payload:grid});
          }} >
         {grid ? <GridViewIcon className='bttn'/> : <SplitscreenIcon className='bttn'/>}
      </div>
@@ -148,7 +145,7 @@ return (
      <Sidebar  />
      </div>
  <div className="main">
-     
+     <Archives/>
  </div>
   </div>
   </>

@@ -8,7 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
-import { NEWNOTE , GRID } from '../redux/propsactions';
+import { NEWNOTE , GRID , CLOSED , SHADES } from '../redux/propsactions';
 import { useDispatch, useSelector } from 'react-redux';
 import Template from '../components/template';
 const Home = () => {
@@ -22,7 +22,6 @@ const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const refu = useRef(null);
-  const temp6 = useRef(null);
   const temp5 = useRef(null);
   const temp7 = useRef(null);
   const temp8 = useRef(null);
@@ -103,35 +102,43 @@ if(pageName==="home"){
          // eslint-disable-next-line react-hooks/exhaustive-deps
    },[store.props.outer]);
 
+   useEffect(()=>{
+    if(store.props.closed===true){
+      setsidebar(false);
+      const temp =reffi.current;
+      console.log(temp);
+      if(temp.classList.contains('show')){
+        console.log("hey");
+        temp.classList.remove('show');
+      }
+      temp.classList.add('hide');
+      const reff = refu.current;
+      reff.classList.remove('dark');
+      const refff = temp5.current;
+      refff.classList.remove('dark');
+      document.body.style.backgroundColor = "#ffffff";
+      document.body.style.overflow="scroll";
+      // let tp = temp6.current;
+      // tp.style.zIndex="0";
+      // var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+      // scrollTop+=8;
+      // tp.style.color="transparent";
+      // tp.style.top=`${scrollTop}px`;
+      let tpp = temp7.current;
+      tpp.style.backgroundColor="#EFF4FA";
+      dispatch({type:CLOSED , payload:false});
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+   },[store.props.closed])
+
   return (
     <>
-            <div ref={temp6} className="great">
+            {/* <div ref={temp6} className="great">
            <CloseIcon id='gret' onClick={(e)=>{
             e.preventDefault();
-              setsidebar(false);
-              const temp =reffi.current;
-              console.log(temp);
-              if(temp.classList.contains('show')){
-                console.log("hey");
-                temp.classList.remove('show');
-              }
-              temp.classList.add('hide');
-              const reff = refu.current;
-              reff.classList.remove('dark');
-              const refff = temp5.current;
-              refff.classList.remove('dark');
-              document.body.style.backgroundColor = "#ffffff";
-              document.body.style.overflow="scroll";
-              let tp = temp6.current;
-              tp.style.zIndex="0";
-              var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-              scrollTop+=8;
-              tp.style.color="transparent";
-              tp.style.top=`${scrollTop}px`;
-              let tpp = temp7.current;
-              tpp.style.backgroundColor="#EFF4FA";
+              
           }}/>
-          </div>
+          </div> */}
     <div ref={refu} className="home">
       <nav ref={temp5} className="nav">
             <div className="left">
@@ -144,6 +151,8 @@ if(pageName==="home"){
                 console.log("hey");
                 temp1.classList.remove('hide');
               }
+              dispatch({type:SHADES , payload:true});
+              console.log("done");
               temp1.classList.add('show');
               const reff = refu.current;
               reff.classList.add('dark');
@@ -153,11 +162,6 @@ if(pageName==="home"){
               document.body.style.overflow="hidden";
               var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
               temp1.style.top=`${scrollTop}px`;
-              let tp = temp6.current;
-              tp.style.zIndex="7";
-              scrollTop+=8;
-              tp.style.color="#283848";
-              tp.style.top=`${scrollTop}px`;
               let tpp = temp7.current;
               tpp.style.backgroundColor="#616264";
           }}/>

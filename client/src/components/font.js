@@ -65,3 +65,11 @@ let font =[
 ];
 
 export default font;
+
+
+    // let tp = temp6.current;
+    // tp.style.zIndex="0";
+    // var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+    // scrollTop+=8;
+    // tp.style.color="transparent";
+    // tp.style.top=`${scrollTop}px`;

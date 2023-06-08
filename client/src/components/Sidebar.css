@@ -17,14 +17,18 @@
     height: 8vh;
     border-bottom: 2px solid #C3E7FF;
     display: flex;
-    justify-content: center;
+    justify-content:space-between;
     align-items: center;
+}
+.side .upper .btttn{
+    margin-left: 1rem;
 }
 .side .upper h1{
   font-size: 1.8rem;
   color: #283848;
   font-family: 'Roboto Condensed' , sans-serif;
   font-weight: 300;
+  margin-right: 4rem;
   
 }
 .other{

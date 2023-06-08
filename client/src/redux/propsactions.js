@@ -12,3 +12,7 @@ export const PINSHORT = "PINSHORT";
 export const GRID = "GRID";
 export const UPDATENOTE = "UPDATENOTE";
 export const DELETENOTE = "DELETENOTE";
+export const CLOSED = "CLOSED";
+export const SHADES = "SHADES";
+export const ARCHIVEGRID = "ARCHIVEGRID";
+export const ARCHIVESHADES = "ARCHIVESHADES";
