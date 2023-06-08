@@ -5,3 +5,5 @@ There are over 20 font options available, allowing you to experiment with differ
 The notes can be pinned at the top of the home page and can be archived. <br/>
 Additionally, you will have access to deleted notes for 28 days after they have been deleted <br/>
  
+ 
+ 
