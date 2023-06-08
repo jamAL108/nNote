@@ -47,11 +47,15 @@ const user =(state=initialstate , action) =>{
              }
              info.note = array;
             console.log(typeof(info));
+            const expirationDate = new Date();
+            expirationDate.setDate(expirationDate.getDate() + 3); 
+            localStorage.setItem("token", expirationDate.toISOString());
                 localStorage.setItem("user",JSON.stringify({info}));
                 return state;
         case LOGOUT:
             localStorage.removeItem("user");
             localStorage.removeItem("temp");
+            localStorage.removeItem("token");
             return{
                 ...state , logout:action.payload
             }

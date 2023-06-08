@@ -1,8 +1,26 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Background from "../images/background2.jpg";
 import "../css/outer.css";
 import { useNavigate } from 'react-router-dom'; 
 const Outer = () => {
+  useEffect(()=>{
+    const token = localStorage.getItem("token");
+    if(token > new Date()){
+       navigate("/home");
+    }else{
+      localStorage.removeItem("token");
+    }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+  useEffect(() => {
+    // Update document title when component mounts
+    document.title = 'nNote';
+    // Clean up document title when component unmounts
+    return () => {
+        document.title = 'nNote';
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps 
+  }, []);
   const navigate = useNavigate();
   const data ={
     index:0

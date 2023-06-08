@@ -12,10 +12,28 @@ import { NEWNOTE , GRID , CLOSED , SHADES } from '../redux/propsactions';
 import { useDispatch, useSelector } from 'react-redux';
 import Template from '../components/template';
 const Home = () => {
+  useEffect(() => {
+    // Update document title when component mounts
+    document.title = 'nNote - Home';
+    // Clean up document title when component unmounts
+    return () => {
+        document.title = 'nNote';
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps 
+  }, []);
+  useEffect(()=>{
+     const user = JSON.parse(localStorage.getItem("user"));
+     const token = localStorage.getItem("token");
+     if(!user && !token){
+        navigate("/");
+     }
+       // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
   useEffect(()=>{
     document.body.style.transition="all 0s";
   document.body.style.backgroundColor="#ffffff";
   document.body.style.overflow="scroll";
+    // eslint-disable-next-line react-hooks/exhaustive-deps
 },[]);
  const store= useSelector((state)=>state);
   const reffi = useRef(null);

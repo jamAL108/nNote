@@ -1,4 +1,5 @@
 import express from "express";
+import cookieParser from 'cookie-parser';
 import { Login ,
          Signup,
          Addnote,
@@ -8,7 +9,7 @@ import { Login ,
 
 
 const router = express.Router();
- 
+router.use(cookieParser())
 router.post("/login",Login);
 router.post("/signup",Signup);
 router.post("/addnote",Addnote);

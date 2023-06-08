@@ -8,9 +8,28 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Archives from '../components/archive.js';
 import '../css/archive.css';
+import { useNavigate } from 'react-router-dom';
 import { CLOSED , ARCHIVESHADES , ARCHIVEGRID} from '../redux/propsactions';
 import { useDispatch, useSelector } from 'react-redux';
 const Archive=() =>{
+  const navigate = useNavigate();
+  useEffect(()=>{
+    const user = JSON.parse(localStorage.getItem("user"));
+    const token = localStorage.getItem("token");
+    if(!user && !token){
+       navigate("/");
+    }
+        // eslint-disable-next-line react-hooks/exhaustive-deps 
+ },[])
+ useEffect(() => {
+  // Update document title when component mounts
+  document.title = 'nNote - Archive';
+  // Clean up document title when component unmounts
+  return () => {
+      document.title = 'nNote';
+  }
+  // eslint-disable-next-line react-hooks/exhaustive-deps 
+}, []);
     useEffect(()=>{
         document.body.style.transition="all 0s";
       document.body.style.backgroundColor="#ffffff";

@@ -2,6 +2,8 @@ import bcrypt from "bcryptjs";
 import usersetup from "../models/userdetail.js";
 import notes from "../models/notes.js";
 import deleted from '../models/deleted.js';
+// import Auth from '../auth/auth.js';
+// import jwt from 'jsonwebtoken';
 export const Login = async(req,res)=>{
     const errors={passwordError:String , emailError:String , backenderror:String}
       try{

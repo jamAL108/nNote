@@ -8,8 +8,27 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import '../css/deleted.css';
 import { CLOSED } from '../redux/propsactions';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 const Deleted = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    // Update document title when component mounts
+    document.title = 'nNote - deleted';
+    // Clean up document title when component unmounts
+    return () => {
+        document.title = 'nNote';
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps 
+  }, []);
+  useEffect(()=>{
+    const user = JSON.parse(localStorage.getItem("user"));
+    const token = localStorage.getItem("token");
+    if(!user && !token){
+       navigate("/");
+    }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+ },[])
   useEffect(()=>{
     document.body.style.transition="all 0s";
     document.body.style.overflow="scroll";

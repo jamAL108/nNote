@@ -5,7 +5,9 @@ import cors from 'cors';
 import dotenv from "dotenv";
 dotenv.config({path:"./config.env"});
 import Userrouter from "./router/userrouter.js";
-import bodyParser from "body-parser"
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
