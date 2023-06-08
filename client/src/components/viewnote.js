@@ -19,7 +19,7 @@ import Colorpicker from './colorpicker';
 import FontDownloadOutlinedIcon from '@mui/icons-material/FontDownloadOutlined';
 import Fonts from './fonts.js';
 import { COLORSHOW, FONTDISPLAY, FONTHIDE  } from '../redux/propsactions';
-import { updatenote } from '../redux/action/useraction';
+import { updatenote , deletenote } from '../redux/action/useraction';
 import { OUTER , OLDNOTE} from '../redux/propsactions';
 
 const Viewnote = () => {
@@ -228,20 +228,24 @@ const Viewnote = () => {
               </div>
 
               <div className="ul"
-              //  onClick={(e)=>{
-                  // const user = JSON.parse(localStorage.getItem("user"));
-                  // user.info.note.splice(temp.idx,1);
-                  // let array = user.info.note;
-                  // for(var i=temp.idx;i<array.length;i++){
-                  //    array[i].idx--;
-                  // }
-                  // const data={
-                  //   temp:temp,
-                  //   id:user.id
-                  // }
-                  // dispatch(deletenote(data));
-                  // navigate(-1);
-              // }}
+               onClick={(e)=>{
+                  const user = JSON.parse(localStorage.getItem("user"));
+                  user.info.note.splice(temp.idx,1);
+                  let array = user.info.note;
+                  for(var i=temp.idx;i<array.length;i++){
+                     array[i].idx--;
+                  }
+                  user.info.note = array;
+                  user.info.del.push(temp);
+                  user.info.totalnote--;
+                  const data={
+                    temp:temp,
+                    id:user.id
+                  }
+                  localStorage.setItem("user",JSON.stringify(user));
+                  dispatch(deletenote(data));
+                  navigate(-1);
+              }}
               >
               <DeleteOutlineRoundedIcon className='bttn' />
                  <h2>Delete</h2>

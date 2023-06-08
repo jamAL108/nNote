@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import usersetup from "../models/userdetail.js";
 import notes from "../models/notes.js";
-
+import deleted from '../models/deleted.js';
 export const Login = async(req,res)=>{
     const errors={passwordError:String , emailError:String , backenderror:String}
       try{
@@ -14,14 +14,21 @@ export const Login = async(req,res)=>{
          }
         const passwordcorrect = await bcrypt.compare(password , data.password);
        if(passwordcorrect){
-        const note = await notes.find({user:data.id});
+        const note = await notes.find({user:data._id});
+
+        const del = await deleted.find({user:data._id});
         let array = [];
+        let delet = [];
         if(notes.length!==0){
            array=note;
+        }
+        if(del.length!==0){
+            delet =del;
         }
         const user={
           note:array,
           id:data._id,
+          del:delet,
           username:data.username,
           totalnote:array.length
         }
@@ -101,7 +108,8 @@ export const Updatenote = async(req,res)=>{
         errors.emailError="No data";
         return  res.status(404).send({error:errors});
        }
-        const notey = await notes.findOne({id:data.temp.id , user:data.id});
+        const notey = await notes.findOne({_id:data.temp._id , user:data.id});
+        console.log(notey);
         notey.bg=data.temp.bg;
         notey.bgcolor=data.temp.bgcolor;
         notey.title=data.temp.title;
@@ -121,6 +129,39 @@ export const Updatenote = async(req,res)=>{
       return res.status(404).send({error:errors})
     }
 };
+
+
+
+
+export const Deletenote = async(req,res)=>{
+  const errors={backenderror:String}
+  try{
+     const data = req.body;
+     if(!data){
+      return  res.status(404).send({error:"no data received to delete"});
+     }
+     const newdeleted = new deleted({
+      user:data.temp.user,
+      bg:data.temp.bg,
+      bgcolor:data.temp.bgcolor,
+      fonts:data.temp.fonts,
+      color:data.temp.color,
+      archive:data.temp.archive,
+      pin:data.temp.pin,
+      fontstyle:data.temp.fontstyle,
+      title:data.temp.title,
+      note:data.temp.note
+   });
+   await newdeleted.save();
+   console.log(newdeleted);
+     const notey = await notes.deleteOne({_id:data.temp._id});
+     return res.status(200).send({message:"success"});
+  }catch(err){
+    errors.backenderror=err;
+    console.log(err);
+    return res.status(404).send({error:errors})
+  }
+}
 
 
 

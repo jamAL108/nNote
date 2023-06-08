@@ -15,6 +15,7 @@ const Home = () => {
   useEffect(()=>{
     document.body.style.transition="all 0s";
   document.body.style.backgroundColor="#ffffff";
+  document.body.style.overflow="scroll";
 },[]);
  const store= useSelector((state)=>state);
   const reffi = useRef(null);

@@ -10,6 +10,7 @@ import '../css/deleted.css';
 const Deleted = () => {
   useEffect(()=>{
     document.body.style.transition="all 0s";
+    document.body.style.overflow="scroll";
   document.body.style.backgroundColor="#ffffff";
 },[]);
   const reffi = useRef(null);
@@ -29,8 +30,9 @@ const Deleted = () => {
   window.addEventListener('scroll', function() {
     let currentScrollPos = window.pageYOffset;
     let nav = document.querySelector(".nav");
-    console.log(prevScrollPos);
-    console.log("hey");
+    // console.log(prevScrollPos);
+    // console.log("hey");
+    if(nav!==null){
     if (prevScrollPos > currentScrollPos) {
       nav.style.position="sticky";
       nav.style.top="2.5%";
@@ -40,6 +42,7 @@ const Deleted = () => {
       nav.style.zIndex="0";
     }
     prevScrollPos = currentScrollPos;
+  }
   });
 }
   console.log(sidebar);

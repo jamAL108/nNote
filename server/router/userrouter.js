@@ -2,7 +2,8 @@ import express from "express";
 import { Login ,
          Signup,
          Addnote,
-         Updatenote
+         Updatenote,
+         Deletenote
         } from "../controller/usercontroller.js";
 
 
@@ -12,5 +13,6 @@ router.post("/login",Login);
 router.post("/signup",Signup);
 router.post("/addnote",Addnote);
 router.post("/updatenote",Updatenote);
+router.post("/deletenote",Deletenote);
 
 export default router;

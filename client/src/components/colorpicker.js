@@ -95,7 +95,7 @@ const Colorpicker = () => {
                 tpp1.style.backgroundColor = "#EFF4FA";
               }
             }
-            style={{ backgroundColor: "white" }}
+            style={{ backgroundColor: "#ffffff" }}
           >
             {col[first] === true && <DoneOutlinedIcon className="bttn" />}
             {col[first] === false && (

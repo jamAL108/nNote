@@ -11,6 +11,7 @@ const Archive=() =>{
     useEffect(()=>{
         document.body.style.transition="all 0s";
       document.body.style.backgroundColor="#ffffff";
+      document.body.style.overflow="scroll";
     },[]);
 const reffi = useRef(null);
 const refu = useRef(null);
@@ -29,8 +30,9 @@ if(pageName==='archive'){
 window.addEventListener('scroll', function() {
   let currentScrollPos = window.pageYOffset;
   let nav = document.querySelector(".nav");
-  console.log(prevScrollPos);
-  console.log("hey");
+  // console.log(prevScrollPos);
+  // console.log("hey");
+  if(nav!==null){
   if (prevScrollPos > currentScrollPos) {
     nav.style.position="sticky";
     nav.style.top="2.5%";
@@ -40,6 +42,7 @@ window.addEventListener('scroll', function() {
     nav.style.zIndex="0";
   }
   prevScrollPos = currentScrollPos;
+}
 });
 }
  const search = ()=>{
@@ -145,7 +148,7 @@ return (
      <Sidebar  />
      </div>
  <div className="main">
-   <p> um architecto veniam eveniet ut itaque sequi ab quidem culpa, amet suscipit expedita quas eius enim dolorum rem nulla? Est exercitationem totam eligendi id. Architecto excepturi laborum, omnis vitae, repellendus ratione quos eos placeat officiis saepe quam corporis aliquid animi voluptates possimus hic deleniti quas nam nihil itaque minus? Ratione, obcaecati rem modi qui incidunt ab! Accusantium pariatur voluptatem dolorum molestiae, similique amet voluptatum veritatis nam, veniam excepturi quam exercitationem optio tempora, cum odit. Eum omnis aperiam enim autem aliquid libero ab dolores eaque error sint, vitae fugit vel laudantium har </p>
+     
  </div>
   </div>
   </>
