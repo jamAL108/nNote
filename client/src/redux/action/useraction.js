@@ -77,7 +77,7 @@ export const signup = (formdata,navigate)=>async(dispatch)=>{
      const msg = await res.json();
      console.log(msg);
      if(res.status === 200 ){
-          navigate("/home");
+          navigate("/login");
           dispatch({type:SIGNUP ,payload:msg.response });
   }else if(res.status === 400 || res.status===404){
     dispatch({type:SIGNUPERROR ,payload:msg.error});
