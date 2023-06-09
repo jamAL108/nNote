@@ -109,6 +109,7 @@ const [done ,setdone] =useState(false);
         <p>No deleted note in the past 28 days</p>
       )}
       {show===true && deleted.length!==0 &&(
+        <>
         <p>Double tap on any note to restore it </p>
           <div className="item1" >
              {deleted.map((item,idx)=>(
@@ -124,6 +125,7 @@ const [done ,setdone] =useState(false);
                   </div>
               ))}
           </div>
+          </>
       )}
     </div>
 </>
