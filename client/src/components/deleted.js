@@ -104,11 +104,12 @@ const [done ,setdone] =useState(false);
 
     <div className="pinned">
       <p className='heading'>Deleted</p>
-      <p>Double tap OR Double click to restore a Note</p>
+     
       {show===false && deleted.length===0 &&(
         <p>No deleted note in the past 28 days</p>
       )}
       {show===true && deleted.length!==0 &&(
+        <p>Double tap on any note to restore it </p>
           <div className="item1" >
              {deleted.map((item,idx)=>(
               <div className="note" onDoubleClick={(e)=>{
