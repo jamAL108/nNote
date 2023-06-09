@@ -14,7 +14,9 @@ import {
     SHADES,
     ARCHIVESHADES,
     ARCHIVEGRID,
-    DARKMODE
+    DARKMODE,
+    DELETEDGRID,
+    DELETEDSHADES
 } from '../propsactions.js';
 
 const initialstate={
@@ -34,7 +36,9 @@ const initialstate={
     shades:false,
     archiveshades:false,
     archivegrid:false,
-    darkmode:false
+    darkmode:false,
+    deletedgrid:false,
+    deleteshades:false
 }  
 
 const props =(state=initialstate , action) =>{
@@ -103,7 +107,15 @@ const props =(state=initialstate , action) =>{
         case DARKMODE:
             return{
                 ...state , darkmode:action.payload
-            }                                                  
+            }
+            case DELETEDSHADES:
+                return{
+                       ...state , deletedshades:action.payload
+                }
+            case DELETEDGRID:    
+                return{
+                    ...state , deletedgrid:action.payload
+                }                                                      
         default:
             return state;
     }

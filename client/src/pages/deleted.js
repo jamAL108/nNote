@@ -3,13 +3,12 @@ import Sidebar from '../components/sidebar';
 import GridViewIcon from '@mui/icons-material/GridView';
 import '../css/home.css';
 import SplitscreenIcon from '@mui/icons-material/Splitscreen';
-import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
 import '../css/deleted.css';
-import { CLOSED } from '../redux/propsactions';
+import { CLOSED, DELETEDSHADES , DELETEDGRID  } from '../redux/propsactions';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import Deleteddd from '../components/deleted.js';
 const Deleted = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -40,10 +39,7 @@ const Deleted = () => {
   const dispatch = useDispatch();
   const temp5 = useRef(null);
   const [sidebar , setsidebar] = useState(false);
-  const [grid,setgrid]=useState(false);
-  const [cross , setcross] =useState(false);
-  const [serh , setserh] =useState(true);
-  const [action , setaction] =useState(false);
+  const [grid,setgrid]=useState(true);
   let prevScrollPos = window.pageYOffset;
   var currentPageUrl = window.location.href;
   var pageName = currentPageUrl.substring(currentPageUrl.lastIndexOf("/") + 1);
@@ -68,17 +64,7 @@ const Deleted = () => {
   });
 }
   console.log(sidebar);
-   const search = ()=>{
-     const title = document.querySelector(".title");
-     console.log(title);
-     title.classList.add('hide');
-     console.log(title);
-     const serch = document.querySelector('.search');
-     serch.classList.add('span');
-     setcross(true);
-     setserh(false);
-     setaction(true);
-   };
+
 
    useEffect(()=>{
     if(store.props.closed===true){
@@ -110,6 +96,7 @@ const Deleted = () => {
            <MenuIcon className='bttn' id="helo"  onClick={(e)=>{
               const temp1 =reffi.current;
             e.preventDefault();
+            dispatch({type:DELETEDSHADES,payload:true});
               setsidebar(true);
               if(temp1.classList.contains('hide')){
                 console.log("hey");
@@ -130,27 +117,9 @@ const Deleted = () => {
     </div>
     
     <div className="right">
-       {action===true &&(
-          <input type="text" placeholder='Search Your Note' />
-       )}
-       <div className="search">
-        {serh===true && (
-        <SearchIcon onClick={search} className='bttn' />
-        )}
-        { cross===true && (
-          <CloseIcon className='bttn'  onClick={(e)=>{
-            setcross(false);
-            setserh(true);
-            setaction(false);
-            const title = document.querySelector(".title");
-            title.classList.remove('hide');
-            const serch = document.querySelector('.search');
-            serch.classList.remove('span');
-          }}/>
-        )}
-       </div>
        <div className="grid" onClick={(e)=>{
             setgrid(!grid);
+            dispatch({type:DELETEDGRID , payload:grid});
            }} >
           {grid ? <GridViewIcon className='bttn'/> : <SplitscreenIcon className='bttn'/>}
        </div>
@@ -162,7 +131,7 @@ const Deleted = () => {
   </div>
 
    <div className="main">
-     <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore expedita sed aliquam possimus mollitia atque qui placeat accusamus quam saepe, deserunt excepturi dolor, veritatis quibusdam cum provident ducimus ex. In magnam vel quo aspernatur explicabo recusandae asperiores qui ut fugit tenetur consequuntur temporibus blanditiis unde distinctio a quas quisquam consequatur, impedit illum. Eveniet, ex harum. Labore tempora ratione architecto fugiat, harum voluptate nulla ipsa veniam consequuntur rerum odit nesciunt sed, voluptates odio! Sed velit totam eaque unde, soluta aut delectus corporis sapiente quaerat cupiditate at reprehenderit maxime accusantium iste rem quis minus quae fuga neque sint nesciunt omnis perferendis recusandae ab. Rerum, nostrum qui. Hic cupiditate sit atque debitis exercitationem, dolorem, quod adipisci placeat molestiae dolore fugit sapiente explicabo molestias enim et numquam. Expedita quam quos laudantium dicta! Cumque ad dolores quam sapiente esse tenetur nostrum aliquam nesciunt consectetur eveniet, reiciendis repellendus quis necessitatibus impedit enim! Ut quas qui tempora. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error saepe ut eligendi accusantium, officia consequatur cum nam maiores ipsum quia obcaecati aut, ex magni doloribus esse vero minima enim quis in. Quis non ea, beatae nemo quaerat obcaecati architecto consequatur facilis voluptate praesentium nisi impedit aspernatur amet, natus earum modi eos temporibus labore, sapiente enim eligendi necessitatibus minus! Veniam accusantium explicabo voluptatum voluptates architecto dolorum, facere, consectetur corrupti, voluptatem vero recusandae officiis quidem.  </p>
+       <Deleteddd/>
    </div>
     </div>
     </>

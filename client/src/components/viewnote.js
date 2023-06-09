@@ -236,11 +236,14 @@ const Viewnote = () => {
                      array[i].idx--;
                   }
                   user.info.note = array;
+                  const random=Math.floor(Math.random() * 10000) + 1;
+                  temp.random=random;
                   user.info.del.push(temp);
                   user.info.totalnote--;
                   const data={
                     temp:temp,
-                    id:user.id
+                    id:user.info.id,
+                    random:random
                   }
                   localStorage.setItem("user",JSON.stringify(user));
                   dispatch(deletenote(data));

@@ -11,7 +11,7 @@ import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch, useSelector } from 'react-redux';
 import { LOGOUT  } from '../redux/actiontypes';
-import { ARCHIVESHADES, CLOSED, SHADES } from '../redux/propsactions';
+import { ARCHIVESHADES, CLOSED, SHADES , DELETEDSHADES } from '../redux/propsactions';
 const Sidebar = () => {
   const sideyy = JSON.parse(localStorage.getItem("sidebar"));
   const data = sideyy.data.index;
@@ -47,6 +47,7 @@ const Sidebar = () => {
           dispatch({type:CLOSED , payload:true});
           dispatch({type:SHADES , payload:false});
           dispatch({type:ARCHIVESHADES,payload:false});
+          dispatch({type:DELETEDSHADES,payload:false});
         }} />
         <h1>Nnote</h1>
      </div>

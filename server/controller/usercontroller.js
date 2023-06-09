@@ -143,7 +143,7 @@ export const Deletenote = async(req,res)=>{
       return  res.status(404).send({error:"no data received to delete"});
      }
      const newdeleted = new deleted({
-      user:data.temp.user,
+      user:data.id,
       bg:data.temp.bg,
       bgcolor:data.temp.bgcolor,
       fonts:data.temp.fonts,
@@ -152,10 +152,10 @@ export const Deletenote = async(req,res)=>{
       pin:data.temp.pin,
       fontstyle:data.temp.fontstyle,
       title:data.temp.title,
-      note:data.temp.note
+      note:data.temp.note,
+      unique:data.random
    });
    await newdeleted.save();
-   console.log(newdeleted);
      const notey = await notes.deleteOne({_id:data.temp._id});
      return res.status(200).send({message:"success"});
   }catch(err){
@@ -165,5 +165,36 @@ export const Deletenote = async(req,res)=>{
   }
 }
 
+
+export const Restore = async(req,res)=>{
+  const errors={backenderror:String}
+    try{
+      const data = req.body;
+      if(!data){
+        errors.emailError="No data";
+        return  res.status(404).send({error:errors});
+       }
+       console.log(data.temp._id);
+       console.log(await deleted.deleteOne({user:data.id,unique:data.temp.random }));
+       const newnote = new notes({
+        user:data.id,
+        bg:data.temp.bg,
+        bgcolor:data.temp.bgcolor,
+        fonts:data.temp.fonts,
+        color:data.temp.color,
+        archive:data.temp.archive,
+        pin:data.temp.pin,
+        fontstyle:data.temp.fontstyle,
+        title:data.temp.title,
+        note:data.temp.note
+     });
+     await newnote.save();
+       return res.status(200).send({message:"success"});
+    }catch(err){
+      errors.backenderror=err;
+      console.log(err);
+      return res.status(404).send({error:errors})
+    }
+};
 
 

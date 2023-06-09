@@ -112,12 +112,6 @@ const Pinned = () => {
         idd2.style.flexDirection="column";
         idd2.style.justifyContent="flex-start";
         }
-        // const noote = document.querySelectorAll(".note");
-        // console.log(noote);
-        // if(noote!==null){
-        //   noote.style.justifyContent="center";
-        //   noote.style.height="auto";
-        // }
       }
        // eslint-disable-next-line react-hooks/exhaustive-deps
   },[store.props.grid]);
@@ -184,7 +178,7 @@ const Pinned = () => {
 <div className="pinned">
 <p className='heading'>Others</p>
 {showother===false && other.length===0 &&(
-  <p>No pinned note available</p>
+  <p>No note available</p>
 )}
 {showother===true && other.length!==0 &&(
     <div className="item2" >

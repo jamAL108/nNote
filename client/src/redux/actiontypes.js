@@ -25,3 +25,4 @@ export const DELETEARCHIVE = 'DELETEARCHIVE';
 export const DELETED = 'DELETED';
 export const DELETEDERROR = 'DELETEDERROR';
 export const SETTINGS = 'SETTINGS';
+export const RESTORE = "RESTORE";

@@ -4,7 +4,8 @@ import { Login ,
          Signup,
          Addnote,
          Updatenote,
-         Deletenote
+         Deletenote,
+         Restore
         } from "../controller/usercontroller.js";
 
 
@@ -15,5 +16,6 @@ router.post("/signup",Signup);
 router.post("/addnote",Addnote);
 router.post("/updatenote",Updatenote);
 router.post("/deletenote",Deletenote);
+router.post("/restore",Restore);
 
 export default router;

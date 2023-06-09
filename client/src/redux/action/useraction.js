@@ -27,8 +27,8 @@ import{
 //  DELETEDERROR,
 //  SETTINGS
 } from '../actiontypes.js';
-const URL= "http://localhost:8000";
-
+const URL= "https://nnote.onrender.com";
+//http://localhost:8000
 
 export const login = (formdata,navigate)=>async(dispatch)=>{
     try{
@@ -151,6 +151,25 @@ export const deletenote =(formdata)=>async(dispatch)=>{
  }else if(res.status === 400 || res.status===404){
    dispatch({type:DELETENOTEERROR ,payload:msg.error});
  }
+ }catch(err){
+   console.log(err);
+ }
+}
+
+
+export const restore =(formdata)=>async()=>{
+  try{
+    const api =`${URL}/user/restore`;
+    const res = await fetch(api,{
+     method: "POST",
+     headers: {
+       "Content-Type":"application/json"
+      },
+     body: JSON.stringify(formdata)
+     });
+     console.log(formdata);
+    const msg = await res.json();
+    console.log(msg);
  }catch(err){
    console.log(err);
  }

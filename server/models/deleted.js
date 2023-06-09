@@ -40,6 +40,10 @@ const deleted = mongoose.Schema({
     fonts:{
         type:[],
         required:true
+    },
+    unique:{
+        type:Number,
+        required:true
     }
 });
 

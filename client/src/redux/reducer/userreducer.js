@@ -49,7 +49,11 @@ const user =(state=initialstate , action) =>{
             console.log(typeof(info));
             const expirationDate = new Date();
             expirationDate.setDate(expirationDate.getDate() + 3); 
-            localStorage.setItem("token", expirationDate.toISOString());
+            const token={
+                auth:"Auth-Token",
+                expiresIn:expirationDate.toISOString()
+            }
+            localStorage.setItem("token",JSON.stringify(token));
                 localStorage.setItem("user",JSON.stringify({info}));
                 return state;
         case LOGOUT:

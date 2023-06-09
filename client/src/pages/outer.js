@@ -3,13 +3,20 @@ import Background from "../images/background2.jpg";
 import "../css/outer.css";
 import { useNavigate } from 'react-router-dom'; 
 const Outer = () => {
+  const navigate = useNavigate();
   useEffect(()=>{
-    const token = localStorage.getItem("token");
-    if(token > new Date()){
+    const token =JSON.parse(localStorage.getItem("token"));
+    console.log(token);
+    if(token){
+    const currentDate = new Date();
+    const expirationDate = new Date(token.expiresIn);
+    if(currentDate<expirationDate){
+      console.log(token);
        navigate("/home");
     }else{
       localStorage.removeItem("token");
     }
+  }
       // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   useEffect(() => {
@@ -21,7 +28,6 @@ const Outer = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps 
   }, []);
-  const navigate = useNavigate();
   const data ={
     index:0
   }
