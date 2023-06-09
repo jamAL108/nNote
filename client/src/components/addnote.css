@@ -326,3 +326,14 @@
     height: 100%;
     font-weight: 200;
 }
+
+
+@media screen and (min-width : 900px) {
+    .addnote{
+        position: absolute;
+        top: 0;
+        left: 20vw;
+        width: 80vw;
+        height: 100vh;
+    }
+}

@@ -16,3 +16,4 @@ export const CLOSED = "CLOSED";
 export const SHADES = "SHADES";
 export const ARCHIVEGRID = "ARCHIVEGRID";
 export const ARCHIVESHADES = "ARCHIVESHADES";
+export const DARKMODE = "DARKMODE";

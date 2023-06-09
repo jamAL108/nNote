@@ -224,3 +224,33 @@
 .ul:hover{
   background-color: #E6EEF9;
 }
+
+
+@media screen and (min-width : 900px) {
+  .side .other .fourth {
+    width: 100%;
+    height: 40%;
+    grid-gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .side .other .fourth .ul{
+    grid-gap: 0.5rem;
+  }
+  .fourth .ul .active{
+    grid-gap: 0.5rem;
+  }
+  .fourth .ul .notactive{
+    grid-gap: 0.5rem;
+  }
+  .other .third .ul{
+    grid-gap: 0.5rem;
+  }
+  .other .second .ul .active{
+    grid-gap: 0.5rem;
+  }
+  .other .second .ul .notactive{
+    grid-gap: 0.5rem;
+  }
+}

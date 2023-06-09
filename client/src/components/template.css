@@ -51,3 +51,14 @@
     font-weight: 180;
     font-size: 0.9rem;
 }
+
+
+@media screen and (min-width : 900px) {
+    .pinned{
+        width: 95%;
+        min-height:50%;
+        height: auto;
+        margin: auto;
+    }
+    
+}

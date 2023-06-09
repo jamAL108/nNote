@@ -199,3 +199,82 @@ input:focus + .box{
     top: 0.8rem;
     left: 0.8rem;
    }
+
+
+
+
+
+   @media screen and (min-width : 900px) {
+    .register .div{
+        width: 100%;
+        height: 80vh;
+        background-color: #0099ff;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+    }
+    .register .div .ulta{
+        display: none;
+    }
+    .register .div .ult{
+        display: none;
+    }
+    .register .div h1{
+        position: absolute;
+        top: 45%;
+        left: 10%;
+        color: #fff;
+        width: 30%;
+        margin: auto;
+        text-align:left;
+        margin-bottom: 0rem;
+        font-size: 2rem;
+        font-family: "Roboto" , sans-serif;
+    }
+    .register .div .icon{
+        position: absolute;
+        top: 2%;
+        left: 3%;
+    }
+    .register form{
+        width: 50%;
+        height: 50%;
+        position: absolute;
+        top: 25%;
+        right: 10%;
+    }
+    .register form .box .icon  {
+       color: #fff;
+    }
+    .register form .submit .btn ,  .register form .submit .bttn{
+        background-color: white;
+        color: #0099ff;
+        width: 40%;
+        margin: auto;
+    }
+
+    .register form input{
+        outline: none;
+        background-color: #0099ff;
+        color: #fff;
+    }
+    .register form .box{
+        border-bottom: 2px solid #fff;
+    }
+    .register form input::placeholder{
+        color: #fff;
+    }
+    .register form .box input , .register form #box4 input {
+        color: #fff;
+    }
+    .register form #box4{
+        border-bottom: 2px solid #fff;
+    }
+    .register form .submit p:after,.register form .submit p:before{
+        background-color:#fff ;
+    }
+    .register form .submit p{
+        color: white;
+    }
+}   

@@ -13,7 +13,8 @@ import {
     CLOSED,
     SHADES,
     ARCHIVESHADES,
-    ARCHIVEGRID
+    ARCHIVEGRID,
+    DARKMODE
 } from '../propsactions.js';
 
 const initialstate={
@@ -32,7 +33,8 @@ const initialstate={
     closed:false,
     shades:false,
     archiveshades:false,
-    archivegrid:false
+    archivegrid:false,
+    darkmode:false
 }  
 
 const props =(state=initialstate , action) =>{
@@ -97,7 +99,11 @@ const props =(state=initialstate , action) =>{
         case ARCHIVEGRID:    
             return{
                 ...state , archivegrid:action.payload
-            }                                               
+            }
+        case DARKMODE:
+            return{
+                ...state , darkmode:action.payload
+            }                                                  
         default:
             return state;
     }

@@ -73,7 +73,7 @@ const Signup = () => {
             <ArrowBackIosNewIcon className='icon' onClick={(e)=>{
                navigate("/");
             }} />
-                    <img className='ulta' src={Cal1} alt="" />
+         <img className='ulta' src={Cal1} alt="" />
         <img className='ult' src={Cal2} alt="" />
             <h1>Create <br /> Account</h1>
         </div>

@@ -8,7 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
-import { NEWNOTE , GRID , CLOSED , SHADES } from '../redux/propsactions';
+import { NEWNOTE , GRID , CLOSED , SHADES  } from '../redux/propsactions';
 import { useDispatch, useSelector } from 'react-redux';
 import Template from '../components/template';
 const Home = () => {
@@ -68,7 +68,6 @@ const Home = () => {
       'Kalam',
       'Sarpanch',
 'FugazOne' ];
-
   let prevScrollPos = window.pageYOffset;
   var currentPageUrl = window.location.href;
 var pageName = currentPageUrl.substring(currentPageUrl.lastIndexOf("/") + 1);
@@ -227,7 +226,8 @@ if(pageName==="home"){
 
 
 
-    <div ref={temp7} className="fixed" onClick={(e)=>{
+    <div ref={temp7} className="fixed" >
+      <AddIcon ref={temp8} className='icons'  onClick={(e)=>{
       e.preventDefault();
       let tp = temp8.current;
       let tpp = temp7.current;
@@ -258,8 +258,7 @@ if(pageName==="home"){
       localStorage.setItem("temp",JSON.stringify(data));
       dispatch({type:NEWNOTE,payload:true});
       navigate("/addnote");
-    }} >
-      <AddIcon ref={temp8} className='icons' />
+    }} />
     </div>
     </div>
     </>
