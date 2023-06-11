@@ -6,6 +6,19 @@ The notes can be pinned at the top of the home page and can be archived. <br/>
 Additionally, you will have access to deleted notes for 28 days after they have been deleted <br/>
  
  
+ # TechStack
+ 
+ 1. Reactjs
+ 2. Redux
+ 3. Thunk
+ 4. css
+ 5. Material UI icons
+ 6. Node
+ 7. expressjs
+ 8. mongoose
+ 9. mongoDB atlas 
+ 
+ 
 # Preview
 
 ## pc view
