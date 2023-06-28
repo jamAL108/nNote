@@ -1,4 +1,4 @@
-# nNote
+# n-Note
 Introducing nNote : Simplify Your Life with Efficient Note-Taking. <br/>
 You can use vibrant and cool sticky colors as backgrounds for your notes.  <br/>
 There are over 20 font options available, allowing you to experiment with different styles for your notes  <br/>
