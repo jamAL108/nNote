@@ -1,9 +1,22 @@
-# nNote
+# n-Note
 Introducing nNote : Simplify Your Life with Efficient Note-Taking. <br/>
 You can use vibrant and cool sticky colors as backgrounds for your notes.  <br/>
 There are over 20 font options available, allowing you to experiment with different styles for your notes  <br/>
 The notes can be pinned at the top of the home page and can be archived. <br/>
 Additionally, you will have access to deleted notes for 28 days after they have been deleted <br/>
+ 
+ 
+ # TechStack
+ 
+ 1. Reactjs
+ 2. Redux
+ 3. Thunk
+ 4. css
+ 5. Material UI icons
+ 6. Node
+ 7. expressjs
+ 8. mongoose
+ 9. mongoDB atlas 
  
  
 # Preview
